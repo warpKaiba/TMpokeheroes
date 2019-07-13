@@ -25,7 +25,7 @@ if(window.location == "https://pokeheroes.com/berrygarden") {
     document.getElementById("plantall").addEventListener("click", plantAll)
 
     document.getElementById('garden_loader').insertAdjacentHTML("beforebegin","<button id='selectseedx'>"+ berryType +"</button> ")
-    document.getElementById("selectseedx").addEventListener("click", selectSeed)
+    document.getElementById("selectseedx").addEventListener("click", selectSeedx)
     
 
 }
@@ -79,7 +79,7 @@ function justForYou(){
 
 }
 
-function selectSeed() {
+function selectSeedx() {
     selectSeed(berryType, 1)
 }
 

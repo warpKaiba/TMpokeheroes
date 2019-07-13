@@ -13,7 +13,7 @@
     var i = 0, max = 10, delay = 200, run
     run = function() {
 
-        coinflip()
+        coinflip() // website function
 
         if(i++ < max || max == 0){
             setTimeout(run, delay);

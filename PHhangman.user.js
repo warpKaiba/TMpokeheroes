@@ -1,11 +1,12 @@
 // ==UserScript==
 // @name         PH - Hangman suggestions
 // @namespace    http://tampermonkey.net/
-// @version      0.1
+// @version      0.2
 // @description  it has a fuck huge list
 // @author       You
 // @match        https://pokeheroes.com/gc_hangman*
 // @grant        none
+// @downloadURL  https://github.com/warpKaiba/TMpokeheroes/raw/master/PHhangman.user.js
 // ==/UserScript==
 
 function pokemonRegexTest(a) {

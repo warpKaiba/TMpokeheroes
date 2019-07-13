@@ -1,15 +1,17 @@
 // ==UserScript==
 // @name         PH - Better Berries
 // @namespace    http://tampermonkey.net/
-// @version      0.3
+// @version      0.4
 // @description  this part of the site is so unpolished holy shit
 // @author       You
 // @match        https://pokeheroes.com/berrygarden*
 // @match        https://pokeheroes.com/toolshed*
 // @grant        none
+// @downloadURL  https://github.com/warpKaiba/TMpokeheroes/raw/master/PH%20-%20Better%20Berries.user.js
 // ==/UserScript==
 
-var userName = "reaperkun"
+var berryType = "Pecha";
+
 
 if(window.location == "https://pokeheroes.com/berrygarden") {
 
@@ -20,8 +22,8 @@ if(window.location == "https://pokeheroes.com/berrygarden") {
     document.getElementById("plantall").addEventListener("click", plantAll)
 
     if (document.getElementsByClassName("userbar")[0].textContent == userName) {
-        document.getElementById('garden_loader').insertAdjacentHTML("beforebegin","<button id='selectRawst'>Rawst Lvl. 1</button> ")
-        document.getElementById("selectRawst").addEventListener("click", selectRawst)
+        document.getElementById('garden_loader').insertAdjacentHTML("beforebegin","<button id='selectseedx'>"+ berryType +"</button> ")
+        document.getElementById("selectseedx").addEventListener("click", selectSeed)
     }
 
 }
@@ -33,17 +35,17 @@ if(window.location == "https://pokeheroes.com/toolshed") {
     document.getElementById("maxberries").addEventListener("click", maxBerries)
     document.querySelector("[style='display: flex; flex-wrap: wrap; justify-content: center']").insertAdjacentHTML('afterend', '<button id="collectseeds">Collect all seeds</button>')
     document.getElementById("collectseeds").addEventListener("click", collectSeeds)
-    if (document.getElementsByClassName("userbar")[0].textContent == userName) {
-        document.querySelector("[style='display: flex; flex-wrap: wrap; justify-content: center']").insertAdjacentHTML('afterend', '<button id="fillrawst">Fill With Rawsts</button>')
-        document.getElementById("fillrawst").addEventListener("click", justForReaper)
+    if (true) {
+        document.querySelector("[style='display: flex; flex-wrap: wrap; justify-content: center']").insertAdjacentHTML('afterend', '<button id="fillberry">Fill With ' + berryType + '</button>')
+        document.getElementById("fillberry").addEventListener("click", justForYou)
     }
 
 }
 
-function justForReaper(){
+function justForYou(){
     var seedMakerCap1 = parseInt(document.getElementsByClassName("seedMakerDesc0")[0].innerHTML.match(/(\d*) Berries/)[1])
     $("<div>").load("includes/ajax/berrygarden/fillSeedMaker.php", {
-        'berries': "Rawst",
+        'berries': berryType,
         'amount': seedMakerCap1,
         'level': 1,
         'maker': 0
@@ -53,7 +55,7 @@ function justForReaper(){
     });
     var seedMakerCap2 = parseInt(document.getElementsByClassName("seedMakerDesc1")[0].innerHTML.match(/(\d*) Berries/)[1])
     $("<div>").load("includes/ajax/berrygarden/fillSeedMaker.php", {
-        'berries': "Rawst",
+        'berries': berryType,
         'amount': seedMakerCap2,
         'level': 1,
         'maker': 1
@@ -63,7 +65,7 @@ function justForReaper(){
     });
     var seedMakerCap3 = parseInt(document.getElementsByClassName("seedMakerDesc2")[0].innerHTML.match(/(\d*) Berries/)[1])
     $("<div>").load("includes/ajax/berrygarden/fillSeedMaker.php", {
-        'berries': "Rawst",
+        'berries': berryType,
         'amount': seedMakerCap3,
         'level': 1,
         'maker': 2
@@ -75,8 +77,8 @@ function justForReaper(){
 
 }
 
-function selectRawst() {
-    selectSeed("Rawst", 1)
+function selectSeed() {
+    selectSeed(berryType, 1)
 }
 
 function collectSeeds() {

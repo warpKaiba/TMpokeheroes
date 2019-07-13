@@ -1,11 +1,12 @@
 // ==UserScript==
 // @name         PH - Select party at storage box
 // @namespace    http://tampermonkey.net/
-// @version      0.1
+// @version      0.2
 // @description  try to take over the world!
 // @author       You
 // @match        https://pokeheroes.com/storage_box
 // @grant        none
+// @downloadURL  https://github.com/warpKaiba/TMpokeheroes/raw/master/PH_partyselectall.user.js
 // ==/UserScript==
 
 (function() {

@@ -1,13 +1,14 @@
 // ==UserScript==
 // @name         PH - Now This Is Epic HeHe
 // @namespace    http://tampermonkey.net/
-// @version      1.1
+// @version      1.2
 // @description  Automatically runs on clicklist
 // @author       You
 // @match        https://pokeheroes.com/pokemon_lite*
 // @grant        GM.xmlHttpRequest
 // @connect      pokeheroes.com
 // @connect      staticpokeheroes.com
+// @downloadURL  https://github.com/warpKaiba/TMpokeheroes/raw/master/PHEpicScriptEPIC.user.js
 // ==/UserScript==
 
 

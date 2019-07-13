@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PH - Now This Is Epic HeHe
-// @namespace    http://tampermonkey.net/
-// @version      1.2
+// @namespace    https://github.com/warpKaiba
+// @version      1.3
 // @description  Automatically runs on clicklist
 // @author       You
 // @match        https://pokeheroes.com/pokemon_lite*
@@ -9,6 +9,7 @@
 // @connect      pokeheroes.com
 // @connect      staticpokeheroes.com
 // @downloadURL  https://github.com/warpKaiba/TMpokeheroes/raw/master/PHEpicScriptEPIC.user.js
+// @icon         https://vignette.wikia.nocookie.net/pkmnshuffle/images/7/7f/Ducklett.png/revision/latest?cb=20170409032016
 // ==/UserScript==
 
 

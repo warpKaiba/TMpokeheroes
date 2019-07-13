@@ -1,13 +1,14 @@
 // ==UserScript==
 // @name         PH - Better Berries
-// @namespace    http://tampermonkey.net/
-// @version      0.4
+// @namespace    https://github.com/warpKaiba
+// @version      0.5
 // @description  this part of the site is so unpolished holy shit
 // @author       You
 // @match        https://pokeheroes.com/berrygarden*
 // @match        https://pokeheroes.com/toolshed*
 // @grant        none
 // @downloadURL  https://github.com/warpKaiba/TMpokeheroes/raw/master/PH%20-%20Better%20Berries.user.js
+// @icon         https://vignette.wikia.nocookie.net/pkmnshuffle/images/7/7f/Ducklett.png/revision/latest?cb=20170409032016
 // ==/UserScript==
 
 var berryType = "Pecha";

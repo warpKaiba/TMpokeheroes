@@ -1,12 +1,13 @@
 // ==UserScript==
 // @name         PH - Coin Flipper
-// @namespace    http://tampermonkey.net/
-// @version      0.2
+// @namespace    https://github.com/warpKaiba
+// @version      0.3
 // @description  Adds buttons to flip the coin for you
 // @author       You
 // @match        https://pokeheroes.com/gc_coinflip*
 // @grant        none
 // @downloadURL  https://github.com/warpKaiba/TMpokeheroes/raw/master/PHcoinflipper.user.js
+// @icon         https://vignette.wikia.nocookie.net/pkmnshuffle/images/7/7f/Ducklett.png/revision/latest?cb=20170409032016
 // ==/UserScript==
 
 (function() {

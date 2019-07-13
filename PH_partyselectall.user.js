@@ -1,12 +1,13 @@
 // ==UserScript==
 // @name         PH - Select party at storage box
-// @namespace    http://tampermonkey.net/
-// @version      0.2
+// @namespace    https://github.com/warpKaiba
+// @version      0.3
 // @description  try to take over the world!
 // @author       You
 // @match        https://pokeheroes.com/storage_box
 // @grant        none
 // @downloadURL  https://github.com/warpKaiba/TMpokeheroes/raw/master/PH_partyselectall.user.js
+// @icon         https://vignette.wikia.nocookie.net/pkmnshuffle/images/7/7f/Ducklett.png/revision/latest?cb=20170409032016
 // ==/UserScript==
 
 (function() {

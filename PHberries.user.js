@@ -1,17 +1,19 @@
 // ==UserScript==
 // @name         PH - Better Berries
 // @namespace    https://github.com/warpKaiba
-// @version      0.5
+// @version      0.6
 // @description  this part of the site is so unpolished holy shit
 // @author       You
 // @match        https://pokeheroes.com/berrygarden*
 // @match        https://pokeheroes.com/toolshed*
 // @grant        none
-// @downloadURL  https://github.com/warpKaiba/TMpokeheroes/raw/master/PH%20-%20Better%20Berries.user.js
+// @downloadURL  https://github.com/warpKaiba/TMpokeheroes/raw/master/PHberries.user.js
 // @icon         https://vignette.wikia.nocookie.net/pkmnshuffle/images/7/7f/Ducklett.png/revision/latest?cb=20170409032016
 // ==/UserScript==
 
-var berryType = "Pecha";
+var berryType = "Pecha"; // < ----- Change that to the berry you want the button to select seeds for
+						 //         With correct capitalization and spelling, and with the quotes
+						 //         Example:    "Chesto"
 
 
 if(window.location == "https://pokeheroes.com/berrygarden") {

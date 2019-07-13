@@ -24,10 +24,9 @@ if(window.location == "https://pokeheroes.com/berrygarden") {
     document.getElementById('garden_loader').insertAdjacentHTML("beforebegin","<button id='plantall'>Plant all</button> ")
     document.getElementById("plantall").addEventListener("click", plantAll)
 
-    if (document.getElementsByClassName("userbar")[0].textContent == userName) {
-        document.getElementById('garden_loader').insertAdjacentHTML("beforebegin","<button id='selectseedx'>"+ berryType +"</button> ")
-        document.getElementById("selectseedx").addEventListener("click", selectSeed)
-    }
+    document.getElementById('garden_loader').insertAdjacentHTML("beforebegin","<button id='selectseedx'>"+ berryType +"</button> ")
+    document.getElementById("selectseedx").addEventListener("click", selectSeed)
+    
 
 }
 

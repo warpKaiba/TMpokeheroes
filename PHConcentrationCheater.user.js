@@ -7,7 +7,7 @@
 // @match        https://pokeheroes.com/gc_concentration*
 // @grant        none
 // @icon         https://vignette.wikia.nocookie.net/pkmnshuffle/images/7/7f/Ducklett.png/revision/latest?cb=20170409032016
-// @downloadURL  https://github.com/warpKaiba/TMpokeheroes/raw/master/PHcoinflipper.user.js
+// @downloadURL  https://github.com/warpKaiba/TMpokeheroes/raw/master/PHConcentrationCheater.user.js
 // ==/UserScript==
 
 

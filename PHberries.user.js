@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PH - Better Berries
 // @namespace    https://github.com/warpKaiba
-// @version      0.6
+// @version      0.7
 // @description  this part of the site is so unpolished holy shit
 // @author       You
 // @match        https://pokeheroes.com/berrygarden*

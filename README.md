@@ -1,7 +1,10 @@
 # TMpokeheroes
-Scripts for ease of use and profit for Pokeheroes.
+##A collection of user-scripts for ease of use, cheating, and profit for Pokeheroes.
 
-DISCLAIMER: Use these at your own risk. I am not responsible if you get banned from using these.
+Pokeheroes is a Pokemon fan-game website where users can perform various activities such as breeding, catching, raising, and collecting Pokemon by interacting with the website. Known as a "Poke-Clicker", Pokeheroes is one of a handful of Pokemon fan-game with a similar play style.
+The scripts in this repository can aid in making certain features of Pokeheroes easier. The scripts execute code in the user's browser to accomplish this.
+ 
+DISCLAIMER: Use these at your own risk. I hold no responsiblity if you decide to use these and get banned.
 
 ## How to install
 
@@ -21,8 +24,8 @@ This script will make cards stay face up after you get an incorrect match.
 ## PHEpicScriptEPIC.user.js
 Affects all clicklists.
 
-This script will automatically click through a clicklist for as long as you have the tab open.
-It is not recommended to keep the tab open for an extended period of time. This thing racks up interactions extremely quickly.
+This script will automatically "click" through a clicklist for as long as you have the tab open.
+It is not recommended to keep the tab open for an extended period of time. This thing racks up interactions extremely quickly, even faster than an autoclicker.
 
 ## PH_partyselectall.user.js
 Affects the storage box page.
@@ -56,3 +59,7 @@ Affects the hangman game in the game center.
 This script will display a list of possible solutions to the hangman. The word bank is not complete, but can solve most of them.
 
 ![hangman](https://i.imgur.com/3hO4bYM.png)
+
+## Support
+
+Feel free to ask for new features, submit bug reports, and ask questions in the issues tab. I recommend not having a username that can be traced back to a Pokeheroes account.

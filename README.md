@@ -1,5 +1,5 @@
 # TMpokeheroes
-##A collection of user-scripts for ease of use, cheating, and profit for Pokeheroes.
+## A collection of user-scripts for ease of use, cheating, and profit for Pokeheroes.
 
 Pokeheroes is a Pokemon fan-game website where users can perform various activities such as breeding, catching, raising, and collecting Pokemon by interacting with the website. Known as a "Poke-Clicker", Pokeheroes is one of a handful of Pokemon fan-game with a similar play style.
 The scripts in this repository can aid in making certain features of Pokeheroes easier. The scripts execute code in the user's browser to accomplish this.

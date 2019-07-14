@@ -16,6 +16,12 @@ DISCLAIMER: Use these at your own risk. I hold no responsiblity if you decide to
 
 # Script Info
 
+## PHAutoSlots.user.js
+Affects the golden slot machines.
+
+Removes the delayed alert-box popup when you win a prize. Instead, the message appears above the slot machine immediately.
+![autoslots](https://i.imgur.com/sOutpiD.png)
+
 ## PHConcentrationCheater.user.js
 Affects the concentration card flip game in the game center.
 

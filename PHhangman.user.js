@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         PH - Hangman suggestions
 // @namespace    https://github.com/warpKaiba
-// @version      0.3
-// @description  it has a fuck huge list
+// @version      0.31
+// @description  Pokeheroes hangman word suggester
 // @author       You
 // @match        https://pokeheroes.com/gc_hangman*
 // @grant        none
@@ -3280,10 +3280,7 @@ function pokemonRegexTest(a) {
         "Halloween Sweets",
         "Coinflip",
         "Eggdex",
-
-
-
-
+		"Gamecenter",
 
 
 

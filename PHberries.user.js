@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         PH - Better Berries
 // @namespace    https://github.com/warpKaiba
-// @version      0.7
-// @description  this part of the site is so unpolished holy shit
+// @version      0.9
+// @description  Makes the berry garden into a less tedious user experience
 // @author       You
 // @match        https://pokeheroes.com/berrygarden*
 // @match        https://pokeheroes.com/toolshed*
@@ -11,12 +11,105 @@
 // @icon         https://vignette.wikia.nocookie.net/pkmnshuffle/images/7/7f/Ducklett.png/revision/latest?cb=20170409032016
 // ==/UserScript==
 
-var berryType = "Pecha"; // < ----- Change that to the berry you want the button to select seeds for
-						 //         With correct capitalization and spelling, and with the quotes
-						 //         Example:    "Chesto"
 
+if (getCookie("berryType") == "") {
+    var berryType = "Aspear";
+} else { berryType = getCookie("berryType"); console.log(berryType) }
 
-if(window.location == "https://pokeheroes.com/berrygarden") {
+var berryOptions = [
+    "Aguav",
+    "Apicot",
+    "Aspear",
+    "Babiri",
+    "Belue",
+    "Bluk",
+    "Charti",
+    "Cheri",
+    "Chesto",
+    "Chilan",
+    "Chople",
+    "Coba",
+    "Colbur",
+    "Cornn",
+    "Custap",
+    "Durin",
+    "Enigma",
+    "Figy",
+    "Ganlon",
+    "Grepa",
+    "Haban",
+    "Hondew",
+    "Iapapa",
+    "Jacoba",
+    "Kasib",
+    "Kebia",
+    "Kelpsy",
+    "Lansat",
+    "Leppa",
+    "Liechi",
+    "Lum",
+    "Mago",
+    "Magost",
+    "Micle",
+    "Nanab",
+    "Nomel",
+    "Occa",
+    "Oran",
+    "Pamtre",
+    "Passho",
+    "Payapa",
+    "Pecha",
+    "Persim",
+    "Petaya",
+    "Pinap",
+    "Pomeg",
+    "Qualot",
+    "Rabuta",
+    "Rawst",
+    "Razz",
+    "Rowap",
+    "Salac",
+    "Shuca",
+    "Sitrus",
+    "Spelon",
+    "Starf",
+    "Tamato",
+    "Tanga",
+    "Wacan",
+    "Wepear",
+    "Wiki",
+    "Yache"]
+
+var berryOptionsHTML = "<select id='kaibaberryselect'><option disabled selected>Choose a seed</option>";
+
+for (var i = 0; i < berryOptions.length; i++) {
+    //berryOptionsHTML = berryOptionsHTML.concat("<option>" + berryOptions[i] + "</option>")
+    if (window.location.pathname == "/berrygarden") {
+
+        if (!document.getElementById("seedBag").innerHTML.includes(berryOptions[i])) {
+
+            berryOptionsHTML = berryOptionsHTML.concat("<option disabled>" + berryOptions[i] + "</option>")
+
+        } else {
+            berryOptionsHTML = berryOptionsHTML.concat("<option>" + berryOptions[i] + "</option>")
+        }
+    }
+
+    if (window.location.pathname == "/toolshed") {
+
+        if (!document.getElementById("berryBag").innerHTML.includes(berryOptions[i])) {
+
+            berryOptionsHTML = berryOptionsHTML.concat("<option disabled>" + berryOptions[i] + "</option>")
+
+        } else {
+            berryOptionsHTML = berryOptionsHTML.concat("<option>" + berryOptions[i] + "</option>")
+        }
+
+    }
+}
+berryOptionsHTML = berryOptionsHTML.concat("</select>")
+
+if(window.location.pathname == "/berrygarden") {
 
     document.getElementById('garden_loader').insertAdjacentHTML("beforebegin","<br><button id='waterall'>Water all</button> ")
     document.getElementById("waterall").addEventListener("click", waterAll)
@@ -24,24 +117,59 @@ if(window.location == "https://pokeheroes.com/berrygarden") {
     document.getElementById('garden_loader').insertAdjacentHTML("beforebegin","<button id='plantall'>Plant all</button> ")
     document.getElementById("plantall").addEventListener("click", plantAll)
 
-    document.getElementById('garden_loader').insertAdjacentHTML("beforebegin","<button id='selectseedx'>"+ berryType +"</button> ")
+    document.getElementById('garden_loader').insertAdjacentHTML("beforebegin","<button id='selectseedx'>Select "+ berryType +"</button> ")
     document.getElementById("selectseedx").addEventListener("click", selectSeedx)
-    
+
+    // Berry type cookie selection box
+    document.getElementById('garden_loader').insertAdjacentHTML("beforebegin", berryOptionsHTML)
+    document.getElementById('kaibaberryselect').addEventListener("change", kaibaUpdateBerry)
 
 }
 
-if(window.location == "https://pokeheroes.com/toolshed") {
+if(window.location.pathname == "/toolshed") {
     var seedMakerBerries = document.querySelectorAll("[data-level]")
+
     console.log(seedMakerBerries)
+
     document.getElementById("seedMakerBerryBag").insertAdjacentHTML("beforeend","<button id='maxberries'>Maximize berries</button> ")
     document.getElementById("maxberries").addEventListener("click", maxBerries)
-    document.querySelector("[style='display: flex; flex-wrap: wrap; justify-content: center']").insertAdjacentHTML('afterend', '<button id="collectseeds">Collect all seeds</button>')
+    document.querySelector("[style='display: flex; flex-wrap: wrap; justify-content: center']").insertAdjacentHTML('afterend', '<button id="collectseeds">Collect all seeds</button> ')
     document.getElementById("collectseeds").addEventListener("click", collectSeeds)
-    if (true) {
-        document.querySelector("[style='display: flex; flex-wrap: wrap; justify-content: center']").insertAdjacentHTML('afterend', '<button id="fillberry">Fill With ' + berryType + '</button>')
-        document.getElementById("fillberry").addEventListener("click", justForYou)
-    }
 
+    document.querySelector("[style='display: flex; flex-wrap: wrap; justify-content: center']").insertAdjacentHTML('afterend', '<button id="fillberry">Fill With ' + berryType + '</button> ')
+    document.getElementById("fillberry").addEventListener("click", justForYou)
+
+    document.querySelector("[style='display: flex; flex-wrap: wrap; justify-content: center']").insertAdjacentHTML('afterend', berryOptionsHTML) // toolshed select box
+    document.getElementById('kaibaberryselect').addEventListener("change", kaibaUpdateBerry)
+}
+
+function kaibaUpdateBerry() {
+    var newBerry = document.getElementById("kaibaberryselect").value
+    console.log(newBerry)
+    berryType = newBerry
+    document.cookie = "berryType="+berryType+"; expires=Thu, 18 Dec 2029 12:00:00 UTC;"
+    if (window.location.pathname == "/berrygarden") {
+    document.getElementById("selectseedx").innerText = "Select "+berryType
+    }
+    if (window.location.pathname == "/toolshed") {
+    document.getElementById("fillberry").innerText = "Fill with "+berryType
+    }
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
 }
 
 function justForYou(){

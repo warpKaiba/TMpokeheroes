@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PH - Better Berries
 // @namespace    https://github.com/warpKaiba
-// @version      0.9
+// @version      1.0
 // @description  Makes the berry garden into a less tedious user experience
 // @author       You
 // @match        https://pokeheroes.com/berrygarden*
@@ -15,6 +15,10 @@
 if (getCookie("berryType") == "") {
     var berryType = "Aspear";
 } else { berryType = getCookie("berryType"); console.log(berryType) }
+
+if (getCookie("levelType") == "") {
+    var levelType = 1;
+} else { levelType = getCookie("levelType"); console.log(levelType) }
 
 var berryOptions = [
     "Aguav",
@@ -81,6 +85,7 @@ var berryOptions = [
     "Yache"]
 
 var berryOptionsHTML = "<select id='kaibaberryselect'><option disabled selected>Choose a seed</option>";
+var levelSelectHTML = "<b> Level:</b><input type='number' id='kaibalevelselect' min='1' max='1000' value=" + levelType + "></input>"
 
 for (var i = 0; i < berryOptions.length; i++) {
     //berryOptionsHTML = berryOptionsHTML.concat("<option>" + berryOptions[i] + "</option>")
@@ -117,13 +122,24 @@ if(window.location.pathname == "/berrygarden") {
     document.getElementById('garden_loader').insertAdjacentHTML("beforebegin","<button id='plantall'>Plant all</button> ")
     document.getElementById("plantall").addEventListener("click", plantAll)
 
-    document.getElementById('garden_loader').insertAdjacentHTML("beforebegin","<button id='selectseedx'>Select "+ berryType +"</button> ")
+    document.getElementById('garden_loader').insertAdjacentHTML("beforebegin","<button id='selectseedx' style='width: 16em;'>Select "+ berryType +" Lvl "+ levelType + "</button> ")
     document.getElementById("selectseedx").addEventListener("click", selectSeedx)
+
+    document.getElementById("selectseedx").innerText = "Select " + berryType + " Lvl " + levelType
+    document.getElementById("selectseedx").disabled = false
+    document.getElementById("selectseedx").style.color = ""
+    if ($(".seed" + berryType + " .level" + levelType).length == 0) {
+        document.getElementById("selectseedx").disabled = true
+        document.getElementById("selectseedx").style.color = "#aaa"
+    }
 
     // Berry type cookie selection box
     document.getElementById('garden_loader').insertAdjacentHTML("beforebegin", berryOptionsHTML)
     document.getElementById('kaibaberryselect').addEventListener("change", kaibaUpdateBerry)
 
+    // Level select input - garden
+    document.getElementById('garden_loader').insertAdjacentHTML("beforebegin", levelSelectHTML)
+    document.getElementById('kaibalevelselect').addEventListener("change", kaibaUpdateLevel)
 }
 
 if(window.location.pathname == "/toolshed") {
@@ -133,26 +149,79 @@ if(window.location.pathname == "/toolshed") {
 
     document.getElementById("seedMakerBerryBag").insertAdjacentHTML("beforeend","<button id='maxberries'>Maximize berries</button> ")
     document.getElementById("maxberries").addEventListener("click", maxBerries)
+
     document.querySelector("[style='display: flex; flex-wrap: wrap; justify-content: center']").insertAdjacentHTML('afterend', '<button id="collectseeds">Collect all seeds</button> ')
     document.getElementById("collectseeds").addEventListener("click", collectSeeds)
 
-    document.querySelector("[style='display: flex; flex-wrap: wrap; justify-content: center']").insertAdjacentHTML('afterend', '<button id="fillberry">Fill With ' + berryType + '</button> ')
+    document.querySelector("[style='display: flex; flex-wrap: wrap; justify-content: center']").insertAdjacentHTML('afterend', '<button id="fillberry" style="width: 16em;">Fill With ' + berryType + " Lvl " + levelType + '</button> ')
     document.getElementById("fillberry").addEventListener("click", justForYou)
+
+    document.getElementById("fillberry").innerText = "Fill with " + berryType + " Lvl " + levelType
+    document.getElementById("fillberry").disabled = false
+    document.getElementById("fillberry").style.color = ""
+    if ($(".berry" + berryType + " .level" + levelType).length == 0) {
+        document.getElementById("fillberry").disabled = true
+        document.getElementById("fillberry").style.color = "#aaa"
+    }
 
     document.querySelector("[style='display: flex; flex-wrap: wrap; justify-content: center']").insertAdjacentHTML('afterend', berryOptionsHTML) // toolshed select box
     document.getElementById('kaibaberryselect').addEventListener("change", kaibaUpdateBerry)
+
+    // Level select input - toolshed
+    document.querySelector("[style='display: flex; flex-wrap: wrap; justify-content: center']").insertAdjacentHTML("afterend", levelSelectHTML)
+    document.getElementById('kaibalevelselect').addEventListener("change", kaibaUpdateLevel)
+
+    //
 }
 
 function kaibaUpdateBerry() {
     var newBerry = document.getElementById("kaibaberryselect").value
     console.log(newBerry)
     berryType = newBerry
+
     document.cookie = "berryType="+berryType+"; expires=Thu, 18 Dec 2029 12:00:00 UTC;"
     if (window.location.pathname == "/berrygarden") {
-    document.getElementById("selectseedx").innerText = "Select "+berryType
+        document.getElementById("selectseedx").innerText = "Select " + berryType + " Lvl " + levelType
+        document.getElementById("selectseedx").disabled = false
+        document.getElementById("selectseedx").style.color = ""
+        if ($(".seed" + berryType + " .level" + levelType).length == 0) {
+            document.getElementById("selectseedx").disabled = true
+            document.getElementById("selectseedx").style.color = "#aaa"
+        }
     }
     if (window.location.pathname == "/toolshed") {
-    document.getElementById("fillberry").innerText = "Fill with "+berryType
+        document.getElementById("fillberry").innerText = "Fill with "+ berryType + " Lvl " + levelType
+        document.getElementById("fillberry").disabled = false
+        document.getElementById("fillberry").style.color = ""
+        if ($(".berry" + berryType + " .level" + levelType).length == 0) {
+            document.getElementById("fillberry").disabled = true
+            document.getElementById("fillberry").style.color = "#aaa"
+        }
+    }
+}
+
+function kaibaUpdateLevel() {
+    var newLevel = document.getElementById("kaibalevelselect").value
+    console.log(newLevel)
+    levelType = newLevel
+    document.cookie = "levelType=" +levelType+"; expires=Thu, 18 Dec 2029 12:00:00 UTC;"
+    if (window.location.pathname == "/berrygarden") {
+        document.getElementById("selectseedx").innerText = "Select " + berryType + " Lvl " + levelType
+        document.getElementById("selectseedx").disabled = false
+        document.getElementById("selectseedx").style.color = ""
+        if ($(".seed" + berryType + " .level" + levelType).length == 0) {
+            document.getElementById("selectseedx").disabled = true
+            document.getElementById("selectseedx").style.color = "#aaa"
+        }
+    }
+    if (window.location.pathname == "/toolshed") {
+        document.getElementById("fillberry").innerText = "Fill with " + berryType + " Lvl " + levelType
+        document.getElementById("fillberry").disabled = false
+        document.getElementById("fillberry").style.color = ""
+        if ($(".berry" + berryType + " .level" + levelType).length == 0) {
+            document.getElementById("fillberry").disabled = true
+            document.getElementById("fillberry").style.color = "#aaa"
+        }
     }
 }
 
@@ -173,46 +242,57 @@ function getCookie(cname) {
 }
 
 function justForYou(){
-    var seedMakerCap1 = parseInt(document.getElementsByClassName("seedMakerDesc0")[0].innerHTML.match(/(\d*) Berries/)[1])
-    $("<div>").load("includes/ajax/berrygarden/fillSeedMaker.php", {
-        'berries': berryType,
-        'amount': seedMakerCap1,
-        'level': 1,
-        'maker': 0
-    }, function() {
-        $("#prodQueue" + 1 + " .innerProd").append($(this).html());
-        $("#prodQueue" + 1 + " .noBerryInserted").remove();
-    });
-    var seedMakerCap2 = parseInt(document.getElementsByClassName("seedMakerDesc1")[0].innerHTML.match(/(\d*) Berries/)[1])
-    $("<div>").load("includes/ajax/berrygarden/fillSeedMaker.php", {
-        'berries': berryType,
-        'amount': seedMakerCap2,
-        'level': 1,
-        'maker': 1
-    }, function() {
-        $("#prodQueue" + 2 + " .innerProd").append($(this).html());
-        $("#prodQueue" + 2 + " .noBerryInserted").remove();
-    });
-    var seedMakerCap3 = parseInt(document.getElementsByClassName("seedMakerDesc2")[0].innerHTML.match(/(\d*) Berries/)[1])
-    $("<div>").load("includes/ajax/berrygarden/fillSeedMaker.php", {
-        'berries': berryType,
-        'amount': seedMakerCap3,
-        'level': 1,
-        'maker': 2
-    }, function() {
-        $("#prodQueue" + 3 + " .innerProd").append($(this).html());
-        $("#prodQueue" + 3 + " .noBerryInserted").remove();
-    });
+    if ($(".berry" + berryType + " .level" + levelType).length != 0) {
 
+
+
+        var seedMakerCap1 = parseInt(document.getElementsByClassName("seedMakerDesc0")[0].innerHTML.match(/(\d*) Berries/)[1])
+        $("<div>").load("includes/ajax/berrygarden/fillSeedMaker.php", {
+            'berries': berryType,
+            'amount': seedMakerCap1,
+            'level': 1,
+            'maker': 0
+        }, function() {
+            $("#prodQueue" + 1 + " .innerProd").append($(this).html());
+            $("#prodQueue" + 1 + " .noBerryInserted").remove();
+        });
+        var seedMakerCap2 = parseInt(document.getElementsByClassName("seedMakerDesc1")[0].innerHTML.match(/(\d*) Berries/)[1])
+        $("<div>").load("includes/ajax/berrygarden/fillSeedMaker.php", {
+            'berries': berryType,
+            'amount': seedMakerCap2,
+            'level': 1,
+            'maker': 1
+        }, function() {
+            $("#prodQueue" + 2 + " .innerProd").append($(this).html());
+            $("#prodQueue" + 2 + " .noBerryInserted").remove();
+        });
+        var seedMakerCap3 = parseInt(document.getElementsByClassName("seedMakerDesc2")[0].innerHTML.match(/(\d*) Berries/)[1])
+        $("<div>").load("includes/ajax/berrygarden/fillSeedMaker.php", {
+            'berries': berryType,
+            'amount': seedMakerCap3,
+            'level': 1,
+            'maker': 2
+        }, function() {
+            $("#prodQueue" + 3 + " .innerProd").append($(this).html());
+            $("#prodQueue" + 3 + " .noBerryInserted").remove();
+        });
+
+        setTimeout(function() {
+            location.reload()
+        }, 500)
+
+    } else {window.alert("You don't have any level " + levelType + " " + berryType + " berries.")}
 
 }
 
 function selectSeedx() {
-    selectSeed(berryType, 1)
+    if ($(".seed" + berryType + " .level" + levelType).length != 0) {
+        selectSeed(berryType, levelType)
+    } else {window.alert("You don't have any level " + levelType + " " + berryType + " seeds.")}
 }
 
 function collectSeeds() {
-    claimSeed(0)
+    claimSeed(0) //claimSeed is a website function
     claimSeed(1)
     claimSeed(2)
 }

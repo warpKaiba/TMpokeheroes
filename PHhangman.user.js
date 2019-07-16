@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PH - Hangman suggestions
 // @namespace    https://github.com/warpKaiba
-// @version      0.33
+// @version      0.34
 // @description  Pokeheroes hangman word suggester
 // @author       You
 // @match        https://pokeheroes.com/gc_hangman*
@@ -3283,7 +3283,7 @@ function pokemonRegexTest(a) {
 		"Gamecenter",
 		"Shiny Sprite",
 		"Plushie",
-		"Event Pass"
+		"Event Pass",
 		"Starter",
 		"Easter Egg",
 		

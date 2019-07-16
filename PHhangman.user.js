@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PH - Hangman suggestions
 // @namespace    https://github.com/warpKaiba
-// @version      0.34
+// @version      0.35
 // @description  Pokeheroes hangman word suggester
 // @author       You
 // @match        https://pokeheroes.com/gc_hangman*
@@ -2675,6 +2675,26 @@ function pokemonRegexTest(a) {
         "Vientown",
         "Westerly Town",
         "Wintown",
+		
+		//types
+		"Normal",
+		"Fire",
+		"Water",
+		"Grass",
+		"Electric",
+		"Bug",
+		"Fighting",
+		"Psychic",
+		"Dark",
+		"Steel",
+		"Ice",
+		"Ghost",
+		"Poison",
+		"Flying",
+		"Dragon",
+		"Fairy",
+		"Rock",
+		"Ground",
 
         //pokemon people
         "Steven",
@@ -3286,6 +3306,10 @@ function pokemonRegexTest(a) {
 		"Event Pass",
 		"Starter",
 		"Easter Egg",
+		"Trading",
+		"Almia",
+		"Pokeworld",
+		
 		
 
 

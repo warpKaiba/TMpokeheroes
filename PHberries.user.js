@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PH - Better Berries
 // @namespace    https://github.com/warpKaiba
-// @version      1.0
+// @version      1.1
 // @description  Makes the berry garden into a less tedious user experience
 // @author       You
 // @match        https://pokeheroes.com/berrygarden*
@@ -250,7 +250,7 @@ function justForYou(){
         $("<div>").load("includes/ajax/berrygarden/fillSeedMaker.php", {
             'berries': berryType,
             'amount': seedMakerCap1,
-            'level': 1,
+            'level': levelType,
             'maker': 0
         }, function() {
             $("#prodQueue" + 1 + " .innerProd").append($(this).html());
@@ -260,7 +260,7 @@ function justForYou(){
         $("<div>").load("includes/ajax/berrygarden/fillSeedMaker.php", {
             'berries': berryType,
             'amount': seedMakerCap2,
-            'level': 1,
+            'level': levelType,
             'maker': 1
         }, function() {
             $("#prodQueue" + 2 + " .innerProd").append($(this).html());
@@ -270,7 +270,7 @@ function justForYou(){
         $("<div>").load("includes/ajax/berrygarden/fillSeedMaker.php", {
             'berries': berryType,
             'amount': seedMakerCap3,
-            'level': 1,
+            'level': levelType,
             'maker': 2
         }, function() {
             $("#prodQueue" + 3 + " .innerProd").append($(this).html());

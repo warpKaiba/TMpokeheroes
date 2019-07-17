@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PH - Auto Slots
 // @namespace    https://github.com/warpKaiba
-// @version      0.1
+// @version      0.2
 // @description  automatically spins slots
 // @author       You
 // @match        https://pokeheroes.com/golden_slot*
@@ -17,9 +17,12 @@
 
 
     if (winnings != null) {
-    document.getElementById("golden_slot").insertAdjacentHTML("beforebegin", "<p style='text-align: center;font-weight: bold;font-size: 1.3em;'>" + winnings[1] + "</p>")
+        document.getElementById("golden_slot").insertAdjacentHTML("beforebegin", "<p style='text-align: center;font-weight: bold;font-size: 1.3em;'>" + winnings[1] + "</p>")
 
-    showWin = function showWin() {console.log(winnings[1])}
+        showWin = function showWin() {console.log(winnings[1])}
     } else document.getElementById("golden_slot").insertAdjacentHTML("beforebegin", "<p style='text-align: center;font-weight: bold;font-size: 1.3em;'>Sorry, you didn't win anything.</p>")
 
+    if (window.location.search.includes("spin=true")) {
+        location.reload()
+    }
 })();

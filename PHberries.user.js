@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PH - Better Berries
 // @namespace    https://github.com/warpKaiba
-// @version      1.1
+// @version      1.2
 // @description  Makes the berry garden into a less tedious user experience
 // @author       You
 // @match        https://pokeheroes.com/berrygarden*
@@ -171,7 +171,10 @@ if(window.location.pathname == "/toolshed") {
     document.querySelector("[style='display: flex; flex-wrap: wrap; justify-content: center']").insertAdjacentHTML("afterend", levelSelectHTML)
     document.getElementById('kaibalevelselect').addEventListener("change", kaibaUpdateLevel)
 
-    //
+    // Cooking
+    $("#recipeInterface")[0].parentNode.insertAdjacentHTML("afterbegin", "<button id='claimalldishes'>Claim all dishes</button>")
+    $("#claimalldishes")[0].addEventListener("click", claimAllDishes)
+    function claimAllDishes () {$("[onclick^=claimCookingDish]").click()}
 }
 
 function kaibaUpdateBerry() {

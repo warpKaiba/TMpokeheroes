@@ -27,11 +27,21 @@ Affects the concentration card flip game in the game center.
 
 This script will make cards stay face up after you get an incorrect match.
 
+## PHEasyFish.user.js
+Affects the beach fishing game
+
+Lets you catch fish very quickly until you run out of energy.
+
 ## PHEpicScriptEPIC.user.js
 Affects all clicklists.
 
 This script will automatically "click" through a clicklist for as long as you have the tab open.
 It is not recommended to keep the tab open for an extended period of time. This thing racks up interactions extremely quickly, even faster than an autoclicker.
+
+## PHRoyalTunnelCheat.user.js
+Affects the royal tunnel
+
+This one sloppily adds all the information needed to solve the current question at the bottom of the page.
 
 ## PH_partyselectall.user.js
 Affects the storage box page.
@@ -52,6 +62,13 @@ to equal whatever berry-seed you want. It will only select level 1 seeds.
 The script in action:
 
 ![gif](https://i.imgur.com/2TaRFk8.gif)
+
+## PHcaptcha.user.js
+Affects clicklists
+
+This is just the part of the EPIC script which bypasses the "Are you a human?" check. Use this if you want to leave an auto-clicking program on for an extended period of time, for when you don't want to interact as quickly as EPIC does.
+
+*Make sure you don't run PHcaptcha and EPIC at the same time
 
 
 ## PHcoinflipper.user.js

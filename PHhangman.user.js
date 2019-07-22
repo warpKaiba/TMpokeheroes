@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PH - Hangman suggestions
 // @namespace    https://github.com/warpKaiba
-// @version      0.35
+// @version      0.36
 // @description  Pokeheroes hangman word suggester
 // @author       You
 // @match        https://pokeheroes.com/gc_hangman*
@@ -12,16 +12,23 @@
 
 function pokemonRegexTest(a) {
 
-    var currentHangman = document.querySelector('[style="font-size: 14pt; letter-spacing: 0.5em"]').textContent
-    var alreadySubmitted = document.querySelectorAll("[style='opacity: 0.6']")
+
+
+    var currentHangman = document.querySelector('[style="font-size: 14pt; letter-spacing: 0.5em"]').textContent //current hangman solution to this point
+    var alreadySubmitted = document.querySelectorAll("[style='opacity: 0.6']") //letters that have been used
+
     var submittedReg = "[^";
     for (var k = 0; k<alreadySubmitted.length; k++) {
         submittedReg = submittedReg.concat(alreadySubmitted[k].textContent.toLowerCase())
     }
-    submittedReg = submittedReg.concat("]")
+    submittedReg = submittedReg.concat("]") //making the regex
+
     var unknown = currentHangman.replace(/_/g, submittedReg); //replace underscores with [letters other than currently used] for the regular expression
     unknown = unknown.replace(/\s/g, '\\s'); //replace space with regex whitespace character
     unknown = '^' + unknown + '$' // add ^ (start of string) and $ (end of string) tokens
+
+
+
     var pokemonList = [ //pokemon names -> pokemon items -> pokeHeroes things
         "Bulbasaur",
         "Ivysaur",
@@ -1307,16 +1314,8 @@ function pokemonRegexTest(a) {
         "Dire Hit 3",
         "Light Stone",
         "Dark Stone",
-        "TM93",
-        "TM94",
-        "TM95",
-        "Xtransceiver",
-        "Gram 1",
-        "Gram 2",
-        "Gram 3",
         "Xtransceiver",
         "Medal Box",
-        "DNA Splicers",
         "DNA Splicers",
         "Permit",
         "Oval Charm",
@@ -1324,7 +1323,6 @@ function pokemonRegexTest(a) {
         "Plasma Card",
         "Grubby Hanky",
         "Colress Machine",
-        "Dropped Item",
         "Dropped Item",
         "Reveal Glass",
         "Weakness Policy",
@@ -1681,7 +1679,6 @@ function pokemonRegexTest(a) {
 
         "Ikkakugong",
         "Impasta",
-        "J",
         "Jesterig",
 
         "Keggleon",
@@ -1712,12 +1709,10 @@ function pokemonRegexTest(a) {
         "Minun (Flirty)",
         "Mr. Bagon",
         "Mr. Moody",
-        "N",
         "Nessy",
         "Nightmare Munna",
         "Nightmare Musharna",
         "Nosepharos",
-        "P",
         "Pachirisnow",
         "Perchaun",
         "Pharraloin",
@@ -2675,26 +2670,26 @@ function pokemonRegexTest(a) {
         "Vientown",
         "Westerly Town",
         "Wintown",
-		
-		//types
-		"Normal",
-		"Fire",
-		"Water",
-		"Grass",
-		"Electric",
-		"Bug",
-		"Fighting",
-		"Psychic",
-		"Dark",
-		"Steel",
-		"Ice",
-		"Ghost",
-		"Poison",
-		"Flying",
-		"Dragon",
-		"Fairy",
-		"Rock",
-		"Ground",
+
+        //types
+        "Normal",
+        "Fire",
+        "Water",
+        "Grass",
+        "Electric",
+        "Bug",
+        "Fighting",
+        "Psychic",
+        "Dark",
+        "Steel",
+        "Ice",
+        "Ghost",
+        "Poison",
+        "Flying",
+        "Dragon",
+        "Fairy",
+        "Rock",
+        "Ground",
 
         //pokemon people
         "Steven",
@@ -2717,6 +2712,7 @@ function pokemonRegexTest(a) {
         "Karen",
         "Sidney",
         "Phoebe",
+        "Elite Four Pheobe",
         "Glacia",
         "Drake",
         "Aaron",
@@ -3145,7 +3141,6 @@ function pokemonRegexTest(a) {
         "Newbie Mentoring",
         "Newbie Tutorial",
         "Notifications",
-        "Pal Pad",
         "Pokedex",
         "Pokeradar",
         "Polls",
@@ -3204,7 +3199,6 @@ function pokemonRegexTest(a) {
         "Auction House",
         "Game Center",
         "Emera Beach",
-        "Daycare",
         "Safari Zone",
         "Remakes",
         "Rambo Rumble",
@@ -3212,6 +3206,7 @@ function pokemonRegexTest(a) {
         "Yellow Meteorite",
         "Mega Easter Lopunny",
         "Golden Game Chips",
+        "Golden Game Chip",
         "Terra Cave",
         "Indigo League",
         "Elite Four",
@@ -3300,21 +3295,68 @@ function pokemonRegexTest(a) {
         "Halloween Sweets",
         "Coinflip",
         "Eggdex",
-		"Gamecenter",
-		"Shiny Sprite",
-		"Plushie",
-		"Event Pass",
-		"Starter",
-		"Easter Egg",
-		"Trading",
-		"Almia",
-		"Pokeworld",
-		
-		
+        "Gamecenter",
+        "Shiny Sprite",
+        "Plushie",
+        "Event Pass",
+        "Starter",
+        "Easter Egg",
+        "Trading",
+        "Almia",
+        "Pokeworld",
+        "Mega Yorebro",
+        "Day Care",
+        "Mega Evolution",
+        "Aqua",
+        "Magma",
+        "Rocket",
+        "Flare",
+        "Galactic",
+        "Skull",
+        "Harvest Sprite",
+        "Ice Cream Cornet",
+        "Dowsing MCHN",
+        "Primal Groudon",
+        "Primal Kyogre",
+        "Berry Garden",
+        "Interaction",
+        "Interactions",
+        "Trainerpoint",
+        "Egg Radar",
+        "Honeycomb",
+        "Fiore",
+        "Professor",
+        "Palpad",
+        "Mushroom",
+        "Frost Rotom",
+        "Fan Rotom",
+        "Wash Rotom",
+        "Heat Rotom",
+        "Mow Rotom",
+        "Weather Balloon",
+        "Green Orb",
+        "Pokemon Movie",
+        "Distortion World",
+        "Spear Pillar",
+        "Userlist",
+        "Tinymushroom",
+        "Pika Pika",
+        "Mega Able",
+        "Game Freak",
+        "Dark Orb",
+        "Pokemon Amie",
+        "Shiny Ditto",
+        "Johto Certificate",
+        "Pokehero",
+        "Attack",
+        "Cerulean Gym",
+        "Meteorite Castform",
+        "Slowpoketail",
 
 
 
-    ]
+
+    ] //long ass list of possible answers
 
     var reg = new RegExp(unknown, "i")
     var possibleAnswers = [];
@@ -3347,13 +3389,47 @@ function pokemonRegexTest(a) {
     for (var j = 0; j<possibleAnswers.length; j++) {
         console.log(possibleAnswers[j])
         document.getElementById("answers").insertAdjacentHTML("beforeend", "<li>" +possibleAnswers[j]+ "</li>")
-        if (j > 10) { j += 1000 }
+        if (j > 5) { j += 1000 } //only go through the first 5 possible answers
     }
-    if (possibleAnswers.length == 0) {
+
+    if (possibleAnswers.length < 5 && possibleAnswers.length > 1) {
+        for (var b = 0; b < possibleAnswers[0].length; b++) {
+            if (possibleAnswers[1].toLowerCase().includes(possibleAnswers[0].toLowerCase()[b])) {
+                if (!currentHangman.toLowerCase().includes(possibleAnswers[0].toLowerCase()[b])) {
+                    $("a.letterGuess:contains("+ possibleAnswers[0][b].toUpperCase() +")")[0].click()
+                }
+            }
+        }
+        for (b = 0; b < possibleAnswers[0].length; b++) {
+            if (!currentHangman.toLowerCase().includes(possibleAnswers[0].toLowerCase()[b])) {
+                $("a.letterGuess:contains("+ possibleAnswers[0][b].toUpperCase() +")")[0].click()
+            }
+        }
+    }
+
+    if (possibleAnswers.length == 1) { // if there's only one possible solution, just type the rest of it in automatically
+        var finalAnswer = possibleAnswers[0].toLowerCase()
+        for (var b = 0; b < finalAnswer.length; b++) {
+            if(!currentHangman.toLowerCase().includes(finalAnswer[b])) {
+                $("a.letterGuess:contains(" + finalAnswer[b].toUpperCase() + ")")[0].click()
+            }
+        }
+    }
+
+    if (possibleAnswers.length == 0) { // if there's no possible solution, then idk this one...
         document.getElementById("textbar").insertAdjacentHTML("beforeend", "<ul id=answers>sorry</ul>")
         document.getElementById("answers").insertAdjacentHTML("beforeend", "<li>idk this one</li>")
 
     }
+
+    if (currentHangman.includes("_")) {
+        $("a.letterGuess:contains('A')")[0].click()
+        $("a.letterGuess:contains('E')")[0].click()
+        $("a.letterGuess:contains('I')")[0].click()
+        $("a.letterGuess:contains('O')")[0].click()
+        $("a.letterGuess:contains('U')")[0].click()
+    }
+
     if (currentHangman.includes("STEVEN")) {
         document.getElementById("answers").insertAdjacentHTML("afterbegin", '<iframe width="560" height="315" src="https://www.youtube.com/embed/j-K-zqLNtcw?start=10&autoplay=1&controls=0" frameborder="1" autoplay="1" allow="picture-in-picture" allowfullscreen></iframe>')
         var stevensHeadlines = document.getElementsByClassName("headline1")
@@ -3385,5 +3461,9 @@ function pokemonRegexTest(a) {
 }
 
 pokemonRegexTest()
+
+if ($("a:contains('Next Hangman')").length == 1) {
+    $("a:contains('Next Hangman')")[0].click()
+}
 
 

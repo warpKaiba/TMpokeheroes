@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         shadow radar beta
 // @namespace    http://tampermonkey.net/
-// @version      0.3
+// @version      0.4
 // @description  try to take over the world!
 // @author       You
 // @match        https://pokeheroes.com/shadowradar*
@@ -77,7 +77,7 @@ fightShadow = function fightShadow() { //onClick event on shadow sprite
         'x': current_x,
         'y': current_y
     }, function (data) {
-        $("#shiny_fight").fadeTo(50, 0.95);
+        $("#shiny_fight").fadeTo(0, 0.95);
         if (data.indexOf("Ball") >= 0) {
             window.clearInterval(autoFind)
         } else {generateKaiba()}
@@ -109,9 +109,9 @@ function throwPokeball(e, pb) {
 function pokeballAnimation(pbimg, spin, caught, fled) {
     spin--;
     $("#battle .pokeball").html(pbimg).show();
-    $("#battle .pkmn_sprite").fadeOut(400, function () {
-        $("#battle .pokeball").delay(600).animate({bottom: "20%"}, 400, "swing", function () {
-            $(this).animate({bottom: "0"}, 1000, "easeOutBounce", function () {
+    $("#battle .pkmn_sprite").fadeOut(200, function () {
+        $("#battle .pokeball").delay(50).animate({bottom: "20%"}, 50, "swing", function () {
+            $(this).animate({bottom: "0"}, 100, "easeOutBounce", function () {
                 if (spin > 0) {
                     pokeballAnimation(pbimg, spin, caught, fled);
                 } else {

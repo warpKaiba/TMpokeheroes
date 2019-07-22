@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         shadow radar beta
 // @namespace    http://tampermonkey.net/
-// @version      0.2
+// @version      0.3
 // @description  try to take over the world!
 // @author       You
 // @match        https://pokeheroes.com/shadowradar*
@@ -25,7 +25,6 @@ var current_y = 0;
 
 function generate0() {
     window.clearInterval(generate);
-    flee()
     current_x = 0
     current_y = 0
     fightShadow()
@@ -33,7 +32,6 @@ function generate0() {
 
 function generate9() {
     window.clearInterval(generate);
-    flee()
     current_x = 9
     current_y = 9
     fightShadow()
@@ -80,7 +78,7 @@ fightShadow = function fightShadow() { //onClick event on shadow sprite
         'y': current_y
     }, function (data) {
         $("#shiny_fight").fadeTo(50, 0.95);
-        if (data.indexOf("ball") >= 0) {
+        if (data.indexOf("Ball") >= 0) {
             window.clearInterval(autoFind)
         } else {generateKaiba()}
     });

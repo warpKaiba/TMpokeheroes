@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         shadow radar beta
 // @namespace    http://tampermonkey.net/
-// @version      0.1
+// @version      0.2
 // @description  try to take over the world!
 // @author       You
 // @match        https://pokeheroes.com/shadowradar*
@@ -13,7 +13,7 @@
 $("#shiny_radar_background")[0].insertAdjacentHTML("afterend", "<button id='autopilot'>Auto pilot</button>")
 $("#autopilot")[0].addEventListener("click", generateKaiba)
 
-var autoFind = window.setInterval(generateKaiba, 500);
+var autoFind;
 var shadowIncrement = 0
 
 var chain_length = 0;

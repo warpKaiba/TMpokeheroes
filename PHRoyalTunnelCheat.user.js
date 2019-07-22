@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PH - Royal Tunnel Cheat
 // @namespace    http://tampermonkey.net/
-// @version      0.5
+// @version      0.6
 // @description  try to take over the world!
 // @author       zc9
 // @match        https://pokeheroes.com/royal_tunnel*
@@ -13,6 +13,9 @@
 
 if(document.body.innerText.indexOf("Start exploring") >= 0) {
     //document.location = "/royal_tunnel?start=beginner";
+}
+if(document.body.innerText.indexOf("You can either take a break or continue") >= 0) {
+    location.href = "?cont"
 }
 else {
     var el = document.getElementsByClassName("royal_tunnel")[0];
@@ -94,7 +97,7 @@ function poketunnel(id,link,looking,looking2,type) {
                 if(type && looking2 && (data.match(/type_icons/g) || []).length == 1) return;
                 setTimeout(function(){
                     document.location = link;
-                }, 100+Math.random()*10)
+                }, 500+Math.random()*10)
             }
         }
     })
@@ -120,7 +123,7 @@ function poketunnel2(id,link,looking) {
                     if(info[info.length - 1] == looking) {
                         setTimeout(function(){
                             document.location = link;
-                        }, 100+Math.random()*10)
+                        }, 500+Math.random()*10)
                     }
                 }
             }

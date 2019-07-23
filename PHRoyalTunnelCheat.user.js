@@ -16,7 +16,7 @@ if (getCookie("tunnelDelay") == "") {
 
 if(document.body.innerText.indexOf("Start exploring") >= 0) {
     //document.location = "/royal_tunnel?start=beginner";
-    $("#footer")[0].insertAdjacentHTML("beforebegin", "<input id=delayinput type='number' min=600 value="+tunnelDelay+"></input>  <button id=delaysubmit>Submit delay (milliseconds)</button>")
+    $("#footer")[0].insertAdjacentHTML("beforebegin", "<div style='text-align: center;'><input id=delayinput type='number' min=600 value="+tunnelDelay+"></input>  <button id=delaysubmit>Submit delay (milliseconds)</button><br><div>This sets the delay for the auto-tunnel script, default is 1000. 1000 milliseconds = 1 second.</div></div><br>")
     $("#delaysubmit")[0].addEventListener("click", updateDelay)
 }
 if(document.body.innerText.indexOf("You can either take a break or continue") >= 0) {

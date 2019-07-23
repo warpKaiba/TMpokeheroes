@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PH - Royal Tunnel Cheat
 // @namespace    http://tampermonkey.net/
-// @version      0.7
+// @version      0.8
 // @description  try to take over the world!
 // @author       zc9
 // @match        https://pokeheroes.com/royal_tunnel*
@@ -103,9 +103,7 @@ function poketunnel(id,link,looking,looking2,twoType,twoEgg) {
                 if(looking2 && data.indexOf(looking2) == -1) return;
                 if(twoType && looking2 && (data.match(/type_icons/g) || []).length == 1) return;
                 if(twoEgg && (looking + "/" + looking2) != data.split("Egggroup:</b> ")[1].split("<br>")[0]) return;
-                setTimeout(function(){
-                    document.location = link;
-                }, tunnelDelay+Math.random()*100)
+                setTimeout(function(){document.location = link;}, ((parseInt(tunnelDelay))+(Math.random()*100)))
             }
         }
     })
@@ -131,7 +129,7 @@ function poketunnel2(id,link,looking) {
                     if(info[info.length - 1] == looking) {
                         setTimeout(function(){
                             document.location = link;
-                        }, tunnelDelay+Math.random()*100)
+                        }, ((parseInt(tunnelDelay))+(Math.random()*100)))
                     }
                 }
             }

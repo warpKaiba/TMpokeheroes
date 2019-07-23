@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PH - Royal Tunnel Cheat
 // @namespace    http://tampermonkey.net/
-// @version      0.6
+// @version      0.7
 // @description  try to take over the world!
 // @author       zc9
 // @match        https://pokeheroes.com/royal_tunnel*
@@ -10,9 +10,14 @@
 // @icon         https://vignette.wikia.nocookie.net/pkmnshuffle/images/7/7f/Ducklett.png/revision/latest?cb=20170409032016
 // ==/UserScript==
 
+if (getCookie("tunnelDelay") == "") {
+    var tunnelDelay = 1000;
+} else { tunnelDelay = getCookie("tunnelDelay"); console.log(tunnelDelay) }
 
 if(document.body.innerText.indexOf("Start exploring") >= 0) {
     //document.location = "/royal_tunnel?start=beginner";
+    $("#footer")[0].insertAdjacentHTML("beforebegin", "<input id=delayinput type='number' min=600 value="+tunnelDelay+"></input>  <button id=delaysubmit>Submit delay (milliseconds)</button>")
+    $("#delaysubmit")[0].addEventListener("click", updateDelay)
 }
 if(document.body.innerText.indexOf("You can either take a break or continue") >= 0) {
     location.href = "?cont"
@@ -21,7 +26,8 @@ else {
     var el = document.getElementsByClassName("royal_tunnel")[0];
     var answers = el.getElementsByTagName("a");
     var quest = document.getElementsByClassName("royal_quest")[0];
-    var type = false
+    var twoType = false;
+    var twoEgg = false;
     var looking;
     var looking2 = false;
     var evolve = false;
@@ -36,7 +42,7 @@ else {
         var count = (quest.innerHTML.match(/type_icons/g) || []).length;
         if (count == 2) {
             looking2 = quest.innerHTML.split("type_icons/")[2].split(".")[0];
-            type = true
+            twoType = true;
         }
     }
     if(quest.innerHTML.indexOf("considered as a") >= 0) {
@@ -49,6 +55,7 @@ else {
         var egggcs = quest.innerHTML.split("<i>");
         if(egggcs.length > 2) {
             looking2 = egggcs[2].split("</i>")[0];
+            twoEgg = true;
         }
         looking = egggcs[1].split("</i>")[0];
     }
@@ -68,13 +75,13 @@ else {
     else {
         for(answer of answers) {
             var s = answer.innerHTML.split("/");
-            poketunnel(parseInt(s[s.length-1].split(".")[0]),answer.href,looking,looking2,type);
+            poketunnel(parseInt(s[s.length-1].split(".")[0]),answer.href,looking,looking2,twoType,twoEgg);
         }
     }
 }
 
-function poketunnel(id,link,looking,looking2,type) {
-    console.log(id,link,looking,looking2,type)
+function poketunnel(id,link,looking,looking2,twoType,twoEgg) {
+    console.log(id,link,looking,looking2,twoType,twoEgg)
     $.ajax({
         type:"POST",
         url:"includes/ajax/pokedex/view_entry.php",
@@ -94,10 +101,11 @@ function poketunnel(id,link,looking,looking2,type) {
             data = data.replace(a,"");
             if(data.indexOf(looking) >= 0) {
                 if(looking2 && data.indexOf(looking2) == -1) return;
-                if(type && looking2 && (data.match(/type_icons/g) || []).length == 1) return;
+                if(twoType && looking2 && (data.match(/type_icons/g) || []).length == 1) return;
+                if(twoEgg && (looking + "/" + looking2) != data.split("Egggroup:</b> ")[1].split("<br>")[0]) return;
                 setTimeout(function(){
                     document.location = link;
-                }, 500+Math.random()*10)
+                }, tunnelDelay+Math.random()*100)
             }
         }
     })
@@ -123,10 +131,31 @@ function poketunnel2(id,link,looking) {
                     if(info[info.length - 1] == looking) {
                         setTimeout(function(){
                             document.location = link;
-                        }, 500+Math.random()*10)
+                        }, tunnelDelay+Math.random()*100)
                     }
                 }
             }
         }
     })
+}
+
+function updateDelay() {
+    tunnelDelay = $("#delayinput")[0].value
+    document.cookie = "tunnelDelay="+tunnelDelay+"; expires=Thu, 18 Dec 2029 12:00:00 UTC";
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
 }

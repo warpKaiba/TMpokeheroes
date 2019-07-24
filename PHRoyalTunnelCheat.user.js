@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PH - Royal Tunnel Cheat
 // @namespace    http://tampermonkey.net/
-// @version      1.2
+// @version      1.3
 // @description  try to take over the world!
 // @author       zc9
 // @match        https://pokeheroes.com/royal_tunnel*
@@ -12,14 +12,14 @@
 
 if (getCookie("tunnelDelay") == "") {
     var tunnelDelay = 1000;
-} else { tunnelDelay = getCookie("tunnelDelay"); console.log(tunnelDelay) }
+} else { tunnelDelay = getCookie("tunnelDelay"); } //console.log(tunnelDelay) }
 
 var breakCookie = "";
 if (getCookie("tunnelBreak") == "") {
     var tunnelBreak = false;
 } else {
     tunnelBreak = getCookie("tunnelBreak");
-    console.log(tunnelBreak)
+    //console.log(tunnelBreak)
     if(tunnelBreak == "true") {
         breakCookie = "checked"
     } else {
@@ -130,6 +130,25 @@ function poketunnel(id,link,looking,looking2,twoType,twoEgg,eggBool) {
             if (looking == "Ditto" && name == "Ditto") {
                 document.location = link
             }
+
+            //special case for ditto pkdx entry
+            if (looking.includes("the ability to reconstitute its entire cellular") && name == "Ditto") {
+                console.log("broken ditto pkdx entry")
+                document.location = link
+            }
+
+            //special case for pinser pkdx entry
+            if (looking.includes("grips prey with its pincers until the prey") && name == "Pinsir") {
+                console.log("broken pinser pkdx entry")
+                document.location = link
+            }
+
+            //special case for miltank pkdx entry
+            if (looking.includes("milk grow up to become hearty") && name == "Miltank") {
+                console.log("broken miltank pkdx entry")
+                document.location = link
+            }
+
 
             if(data.indexOf(looking) >= 0) {
 

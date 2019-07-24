@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PH - Royal Tunnel Cheat
 // @namespace    http://tampermonkey.net/
-// @version      1.1
+// @version      1.2
 // @description  try to take over the world!
 // @author       zc9
 // @match        https://pokeheroes.com/royal_tunnel*
@@ -14,13 +14,28 @@ if (getCookie("tunnelDelay") == "") {
     var tunnelDelay = 1000;
 } else { tunnelDelay = getCookie("tunnelDelay"); console.log(tunnelDelay) }
 
+var breakCookie = "";
+if (getCookie("tunnelBreak") == "") {
+    var tunnelBreak = false;
+} else {
+    tunnelBreak = getCookie("tunnelBreak");
+    console.log(tunnelBreak)
+    if(tunnelBreak == "true") {
+        breakCookie = "checked"
+    } else {
+        breakCookie = ""
+    }
+}
+
 if(document.body.innerText.indexOf("Start exploring") >= 0) {
     //document.location = "/royal_tunnel?start=beginner";
     $("#footer")[0].insertAdjacentHTML("beforebegin", "<div style='text-align: center;'><input id=delayinput type='number' min=600 value="+tunnelDelay+"></input>  <button id=delaysubmit>Submit delay (milliseconds)</button><br><div>This sets the delay for the auto-tunnel script, default is 1000. 1000 milliseconds = 1 second.</div></div><br>")
     $("#delaysubmit")[0].addEventListener("click", updateDelay)
 }
 if(document.body.innerText.indexOf("You can either take a break or continue") >= 0) {
-    location.href = "?cont"
+    if (tunnelBreak == "false") {
+        location.href = "?cont"
+    }
 }
 if(document.getElementsByClassName("royal_tunnel").length > 0 ) {
     var el = document.getElementsByClassName("royal_tunnel")[0];
@@ -32,6 +47,16 @@ if(document.getElementsByClassName("royal_tunnel").length > 0 ) {
     var looking;
     var looking2 = false;
     var evolve = false;
+    el.insertAdjacentHTML("beforebegin", "<input id=breakcheck type=checkbox style='transform: scale(2);' "+ breakCookie +">    Take breaks?</input>")
+    $("#breakcheck").change(function() {
+        if(this.checked) {
+            document.cookie = "tunnelBreak=true; expires=Thu, 18 Dec 2029 12:00:00 UTC;";
+            breakCookie = "checked"
+        } else {
+            document.cookie = "tunnelBreak=false; expires=Thu, 18 Dec 2029 12:00:00 UTC;";
+            breakCookie = ""
+        }
+    });
     localStorage.setItem("lastQuestion",quest.innerHTML);
     console.log(localStorage.lastQuestion)
     if(quest.innerHTML.indexOf("Which of these is a ") >= 0) {
@@ -50,7 +75,7 @@ if(document.getElementsByClassName("royal_tunnel").length > 0 ) {
         looking = quest.innerHTML.split("considered as a <b>")[1].split("</b>")[0];
     }
     if(quest.innerHTML.indexOf(" Entry:</b> ") >= 0) {
-        looking = quest.innerHTML.split("Entry:</b> ")[1].split("</fieldset>")[0].replace(/\*/g,"").replace(/	/g,"").split("\\")[0];
+        looking = quest.innerHTML.split("Entry:</b> ")[1].split("</fieldset>")[0].replace(/\*/g,"").replace(/	/g,"").replace(/\/r\/n/g,"").split("\\")[0];
     }
     if(quest.innerHTML.indexOf("<b>egggroup(s)</b>") >= 0) {
         var egggcs = quest.innerHTML.split("<i>");
@@ -96,7 +121,7 @@ function poketunnel(id,link,looking,looking2,twoType,twoEgg,eggBool) {
             name = name.join(" ");
 
             if(quest.innerHTML.indexOf(" Entry:</b> ") >= 0) {
-                looking = quest.innerHTML.split("Entry:</b> ")[1].split("</fieldset>")[0].replace(/\*{4,}/g,name).replace(/	/g,"").replace(/\/\//g,"").split("\\")[0];
+                looking = quest.innerHTML.split("Entry:</b> ")[1].split("</fieldset>")[0].replace(/\*{4,}/g,name).replace(/	/g,"").replace(/\/\//g,"").replace(/\\\\/g,"").split("\\")[0];
             }
 
             console.log(id,name,link,looking,looking2,twoType,twoEgg,eggBool)
@@ -182,7 +207,7 @@ function poketunnel2(id,link,looking) {
 
 function updateDelay() {
     tunnelDelay = $("#delayinput")[0].value
-    document.cookie = "tunnelDelay="+tunnelDelay+"; expires=Thu, 18 Dec 2029 12:00:00 UTC";
+    document.cookie = "tunnelDelay="+tunnelDelay+"; expires=Thu, 18 Dec 2029 12:00:00 UTC;";
 }
 
 function getCookie(cname) {

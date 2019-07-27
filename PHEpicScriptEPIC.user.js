@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         PH - Now This Is Epic HeHe
+// @name         PH - Epic Clicker
 // @namespace    https://github.com/warpKaiba
-// @version      1.3
-// @description  Automatically runs on clicklist
+// @version      2.0
+// @description  Automatically runs on clicklist + speed option
 // @author       You
 // @match        https://pokeheroes.com/pokemon_lite*
 // @grant        GM.xmlHttpRequest
@@ -76,7 +76,32 @@ if (document.getElementsByClassName("cheat_valid")[0] != undefined) {
         });
     }
 } else {
-    function performInteraction(id, sid, method) {
+
+    var oldPKMN = 0;
+
+    if (getCookie("clickSpeed") == "") {
+        var clickSpeed = 500;
+    } else { clickSpeed = getCookie("clickSpeed"); console.log("click speed: " + clickSpeed) }
+
+    function startClick() {
+        window.clickInterval = setInterval(clickPoke, clickSpeed)
+    }
+
+    function stopClick() {
+        clearInterval(window.clickInterval);
+    }
+
+    $("#textbar")[0].insertAdjacentHTML("afterbegin", "<input id=clickspeedinput type=number value="+clickSpeed+"> Click interval ms </input><button id=clickspeedsubmit>Submit</button><br>The lower the number, the faster it will go. 1 second = 1000 ms. The normal site limit is 200.")
+    $("#clickspeedsubmit")[0].addEventListener("click", function(){
+        clickSpeed = Math.abs($("#clickspeedinput")[0].value)
+        console.log("clickSpeed="+clickSpeed)
+        document.cookie = "clickSpeed="+clickSpeed
+
+        stopClick()
+        startClick()
+    })
+
+    function performInteraction(id, sid, method, poke) {
 
 
         if (method == "feed" && int_berry != "") {
@@ -98,17 +123,64 @@ if (document.getElementsByClassName("cheat_valid")[0] != undefined) {
             $(this).show();
             if ($(this).html().indexOf("success") > -1)
                 cl_c++;
+            oldPKMN = poke
             loadNextPkmn();
         });
 
     }
 
-    setInterval(function(){for (var i = 0; i<pkmn_arr.length; i++) {
-        if(pkmn_arr[i].length>15) {
-            performInteraction(pkmn_arr[i][0], pkmn_arr[i][1], "train")
-        } else {performInteraction(pkmn_arr[i][0], pkmn_arr[i][1], "warm")}
-        console.log("interacted with " + pkmn_arr[i][10])
-    }}, 300)
+    //     setInterval(function(){for (var i = 0; i<pkmn_arr.length; i++) {
+    //         if(pkmn_arr[i].length>15) {
+    //             performInteraction(pkmn_arr[i][0], pkmn_arr[i][1], "train")
+    //         } else {performInteraction(pkmn_arr[i][0], pkmn_arr[i][1], "warm")}
+    //         console.log("interacted with " + pkmn_arr[i][10])
+    //     }}, 300)
+
+
+
+    function clickPoke() {
+        if(pkmn_arr[0] != undefined) {
+            if(pkmn_arr[0] != oldPKMN) {
+                if(pkmn_arr[0].length>15) {
+                    performInteraction(pkmn_arr[0][0], pkmn_arr[0][1], "train", pkmn_arr[0])
+                    console.log("interacted with " + pkmn_arr[0][10])
+                } else {
+                    performInteraction(pkmn_arr[0][0], pkmn_arr[0][1], "warm", pkmn_arr[0])
+                    console.log("interacted with egg")
+                }
+            }
+        }
+    }
+
+
+    function getCookie(cname) {
+        var name = cname + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for(var i = 0; i <ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+
+    function addGlobalStyle(css) {
+        var head, style;
+        head = document.getElementsByTagName('head')[0];
+        if (!head) { return; }
+        style = document.createElement('style');
+        style.type = 'text/css';
+        style.innerHTML = css;
+        head.appendChild(style);
+    }
+
+    addGlobalStyle("#greenfield {height: 5em;}")
+    startClick()
 
 }
 

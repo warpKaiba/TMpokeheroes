@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PH - Auto Bug Contest
 // @namespace    https://github.com/warpKaiba
-// @version      1.1
+// @version      1.2
 // @description  try to take over the world!
 // @author       Kaiba
 // @match        http*://pokeheroes.com/bugcontest*
@@ -69,8 +69,8 @@ var preBuggyInterval = setInterval(function(){
         getRealId(pokeImage, activePokemons[0]) // run the getRealId function below
     }
     if (activePokemons.length > 0) {
-        bugTime = 59 // the time will always be 59 seconds until there are no pokemon left
-    } else {bugTime = 3}
+        bugTime = 5 // the time will always be 59 seconds until there are no pokemon left
+    }
 }, 100)
 
 

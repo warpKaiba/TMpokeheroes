@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PH - Auto Bug Contest
 // @namespace    https://github.com/warpKaiba
-// @version      1.0
+// @version      1.1
 // @description  try to take over the world!
 // @author       Kaiba
 // @match        http*://pokeheroes.com/bugcontest*
@@ -21,19 +21,57 @@
 
 // The reason why this needs to be done is the pokedex number is needed to check if its a bug type.
 
+checkCoordinates = function checkCoordinates(x, y) {return true;} // rewrites the onsite function so pokemon can pile up quicker
 var activePokemons = $(".innerpkmn").not("[style*=display]").not("[style*='margin-left: -100px']") //this is every pokemon sprite that is currently visible
 var pokeImage;
 var previousPoke;
-bugTime = 131; // gives it some extra time ;)
+var pre
+bugTime = 59;
+
+clockBugGame = function clockBugGame() { // rewrites another onsite function to aid in piling
+    bugTime--;
+    $("#bugMiniGame .bugTimeCounter").text(bugTime);
+    $("#bugPkmnContainer .innerpkmn").each(function() {
+        $(this).attr('data-ttl', $(this).attr('data-ttl') - 1);
+        if ($(this).attr('data-ttl') <= 0) {
+            $(this).fadeOut(600);
+        }
+    });
+
+    var add = 10;
+    if (bugTime <= 60)
+        add = 10;
+
+    for (var i = 0; i < add; i++) {
+        var left, top;
+        do {
+            left =  Math.random() * 500;
+            top = 140 + Math.random() * 100;
+        } while (!checkCoordinates(left, top));
+        $("#bugPkmnContainer .pkmn"+bugPkmnArr[0]).css('margin-left', left + 'px').css('margin-top', top+'px').attr('data-ttl', Math.floor(Math.random() * 3 + 2));
+        bugPkmnArr.shift();
+    }
+
+    if (bugTime == 0) {
+        window.clearInterval(bugGameClock);
+        endBugGame();
+    }
+}
+
+
 
 var preBuggyInterval = setInterval(function(){
+    $(".innerpkmn").attr("data-ttl", 100)
     activePokemons = $(".innerpkmn").not("[style*=display]").not("[style*='margin-left: -100px']") // refresh the list of visible pokemon
     if (activePokemons.length > 0 && activePokemons[0] != previousPoke) { // if the game is loaded and we haven't checked the pokemon type yet ..
         previousPoke = activePokemons[0]
         pokeImage = activePokemons[0].firstChild.src
         getRealId(pokeImage, activePokemons[0]) // run the getRealId function below
     }
-}, 150)
+    if (activePokemons.length > 0) {
+        bugTime = 59 // the time will always be 59 seconds until there are no pokemon left
+    } else {bugTime = 3}
+}, 100)
 
 
 function getRealId(img, obj) {

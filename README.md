@@ -41,7 +41,7 @@ It is not recommended to keep the tab open for an extended period of time. This 
 ## PHRoyalTunnelCheat.user.js
 Affects the royal tunnel
 
-This one sloppily adds all the information needed to solve the current question at the bottom of the page.
+This automatically goes through the royal tunnel for you. Performs an ajax request to the site pokedex for each question to find the answers
 
 ## PH_partyselectall.user.js
 Affects the storage box page.

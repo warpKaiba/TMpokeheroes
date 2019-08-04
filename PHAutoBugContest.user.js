@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PH - Auto Bug Contest
 // @namespace    https://github.com/warpKaiba
-// @version      1.2
+// @version      1.3
 // @description  try to take over the world!
 // @author       Kaiba
 // @match        http*://pokeheroes.com/bugcontest*
@@ -28,6 +28,9 @@ var previousPoke;
 var pre
 bugTime = 59;
 
+$("[src*=square\\/bug\\/grass]").detach() //gets rid of grass sprites
+$("#bugMiniGame").attr("style", "position: relative; width: 600px; height: 800px; border: 2px solid darkgreen; overflow: hidden") // make the playable area BIG
+
 clockBugGame = function clockBugGame() { // rewrites another onsite function to aid in piling
     bugTime--;
     $("#bugMiniGame .bugTimeCounter").text(bugTime);
@@ -45,8 +48,8 @@ clockBugGame = function clockBugGame() { // rewrites another onsite function to 
     for (var i = 0; i < add; i++) {
         var left, top;
         do {
-            left =  Math.random() * 500;
-            top = 140 + Math.random() * 100;
+            left = Math.random() * 500;
+            top = Math.random() * 700;
         } while (!checkCoordinates(left, top));
         $("#bugPkmnContainer .pkmn"+bugPkmnArr[0]).css('margin-left', left + 'px').css('margin-top', top+'px').attr('data-ttl', Math.floor(Math.random() * 3 + 2));
         bugPkmnArr.shift();

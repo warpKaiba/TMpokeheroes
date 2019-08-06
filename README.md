@@ -13,7 +13,8 @@ If you have any questions as to how a script works, requests for new scripts, or
 
 1.) You will need either the Tampermonkey, Greasemonkey, Violentmonkey or Scriptify browser extension, depending on your browser/preference. I've only tested these with [Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en) on Chrome. Tampermonkey is also available for [Firefox.](https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/). These scripts work on Firefox for Android using the Tampermonkey extension as well, but haven't been tested thoroughly.
 
-2.) Click on the script you want in the list above, then click Raw. It should bring up a new tab asking if you would like to install it. ![image](https://i.imgur.com/v1ZHsIo.png)
+2.) Click on the script you want in the list above, then click Raw. It should bring up a new tab asking if you would like to install it. !
+[image](https://i.imgur.com/v1ZHsIo.png)
 
 ※If using mobile, you need to download the script and open it using the extension.
 

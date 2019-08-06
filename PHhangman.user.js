@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PH - Hangman suggestions
 // @namespace    https://github.com/warpKaiba
-// @version      0.36
+// @version      0.41
 // @description  Pokeheroes hangman word suggester
 // @author       You
 // @match        https://pokeheroes.com/gc_hangman*
@@ -3352,7 +3352,67 @@ function pokemonRegexTest(a) {
         "Cerulean Gym",
         "Meteorite Castform",
         "Slowpoketail",
-
+        "Deepseascale",
+        "Deepseatooth",
+        "Golden Pokeball",
+        "Honeycombs",
+        "Retro",
+        "Ketchup",
+        "Ketchum",
+        "Route",
+        "Kanto Certificate",
+        "Egg Hunt",
+        "Elite Four Glacia",
+        "Pro Path",
+        "Beginner Path",
+        "Endless Path",
+        "Advanced Path",
+        "Starters",
+        "Sliph Co",
+        "Egg Storage",
+        "Thundershock",
+        "Magikarp",
+        "Quest",
+        "Pokemon Ranger",
+        "Mossy Forest",
+        "Mega Mewtwo",
+        "Ninetails",
+        "Cynthia",
+        "Event",
+        "Mouse",
+        "Suggest A Word",
+        "Trainerlevel",
+        "White Hand",
+        "Mr Mime",
+        "Old Amber Fossil",
+        "Shinies",
+        "Yellow Forest",
+        "Emera",
+        "Full Potion",
+        "Snowy Mountains",
+        "Blue Meteorite",
+        "VS Seeker",
+        "Mt Silver",
+        "Username",
+        "Password",
+        "Daycare Owner",
+        "Dream World",
+        "Chatquiz",
+        "Super Honey",
+        "Level",
+        "Pocket Monsters",
+        "Pocket Monster",
+        "Gem Collector",
+        "GemCollector",
+        "Catch",
+        "Strong Earthquakes",
+        "Archeops",
+        "Safari",
+        "Honey Jar",
+        "Wally",
+        "Fire Type",
+        "Battle",
+        "Concentration", "Trainerpoints", "Advent Raffle Ticket", "Celadon City Gym", "Deep Sea Scale", "Deep Sea Tooth", "Dream World Shop", "Easter Egg Hunt", "Egg Radar Chip", "Elite Four Drake", "Elite Four Glacia", "Elite Four Phoebe", "Ever Grande City", "Global Trade Station", "Golden Game Chip", "Golden Game Chips", "Higher Or Lower", "Ice Cream Cornet", "Large Candy Bag", "Mega Easter Lopunny", "Mega Mewtwo X", "Mewton M Meowth", "New Bark Town", "Old Amber Fossil", "Prof Rowans Lab", "Red Lunar Wing", "Roar Of Time", "Suggest A Word", "Wonder Trade Station", "Absorb Bulb", "Acid Armor", "Acro Bike", "Advanced Path", "Aerial Ace", "Aguav Berry", "Air Balloon", "Alpha Sapphire", "Amulet Coin", "Ancient Cave", "Anger Point", "Anniversary Gift", "Apicot Berry", "Armor Fossil", "Ash Ketchum", "Aspear Berry", "Aspertia City", "Attack Order", "Auction House", "Aura Sphere", "Aurora Beam", "Autumn Abra", "Autumn Alakazam", "Autumn Kadabra", "Babiri Berry", "Badge Case", "Badge Set", "Battle Frontier", "Battle Shop", "Battle Team", "Beginner Path", "Belue Berry", "Berry Garden", "Big Mushroom", "Big Nugget", "Big Nuggets", "Big Root", "Black Kyurem", "Blast Burn", "Blaze Kick", "Blue Flute", "Blue Meteorite", "Blue Orb", "Bluk Berry", "Brave Bird", "Bright Beach", "Brown Sack", "Bubble Beam", "Bug Gem", "Buried Relic", "Burn Drive", "Burn Heal", "Candy Belly", "Capture Rate", "Castform Cast", "Catch Rate", "Celadon City", "Cerulean City", "Cerulean Gym", "Champion Alder", "Champion Cynthia", "Champion Diantha", "Champion Steven", "Champion Wallace", "Charti Berry", "Cheri Berry", "Chesto Berry", "Chilan Berry", "Chill Drive", "Chople Berry", "Claw Fossil", "Coba Berry", "Colbur Berry", "Cornn Berry", "Cosplay Pikachu", "Cover Fossil", "Crystal Crossing", "Current Weather", "Cursed Rapidash", "Custap Berry", "Daily Reward", "Dark Gem", "Dark Orb", "Dark Ponyta", "Dawn Stone", "Day Care", "Daycare Man", "Daycare Owner", "Dazzling Gleam", "Desolate Land", "Dire Hit", "Discount Coupon", "Disguised Exeggcute", "Distortion World", "Dome Fossil", "Doom Desire", "Double Slap", "Douse Drive", "Dowsing Machine", "Dowsing Mchn", "Draco Meteor", "Draco Plate", "Dragon Ascent", "Dragon Dance", "Dragon Gem", "Dragon Rage", "Dragon Rush", "Dragon Scale", "Dragon Type", "Draining Kiss", "Dread Plate", "Dream Ball", "Dream World", "Drenched Bluff", "Drill Rotom", "Dubious Disc", "Durin Berry", "Dusk Stone", "Earth Plate", "Easter Buneary", "Easter Bunnelby", "Easter Diggersby", "Easter Egg", "Easter Eggs", "Easter Event", "Easter Hunt", "Easter Lopunny", "Egg Hunt", "Egg Radar", "Egg Storage", "Electric Gem", "Elite Four", "Emera Bank", "Emera Beach", "Emera Mall", "Emera Square", "Emera Town", "Endless Path", "Enigma Berry", "Enigma Pearl", "Enigma Stone", "Eon Ticket", "Eternal Tower", "Event Distribution", "Event Egg", "Event Pass", "Event Pokemon", "Event Shop", "Exp Share", "Explorer Bag", "Explorer Kit", "Fairy Gem", "Fan Rotom", "Fashion Case", "Festival Gardevoir", "Fiery Furnace", "Fiesta Larvesta", "Fighting Gem", "Figy Berry", "Fire Blast", "Fire Fang", "Fire Gem", "Fire Punch", "Fire Stone", "Fire Type", "Fist Plate", "Flame Orb", "Flame Plate", "Flame Thrower", "Flame Wheel", "Flare Blitz", "Flash Fire", "Flower Boy", "Flower Girl", "Flying Gem", "Foggy Castform", "Forum Thread", "Frenzy Plant", "Frost Rotom", "Full Potion", "Fury Cutter", "Fury Swipes", "Game Center", "Game Chip", "Game Chips", "Game Freak", "Gameboy Advance", "Ganlon Berry", "Gary Oak", "Gem Collector", "Gem Cauldron", "Gem Exchange", "Ghost Gem", "Giga Impact", "Giratina Quest", "Glacier Palace", "Glitch City", "Golden Pokeball", "Golden Slot", "Gracidea Flower", "Grass Gem", "Great Ball", "Green Orb", "Grepa Berry", "Griseous Orb", "Ground Gem", "Gym Badge", "Haban Berry", "Halloween Sweets", "Harvest Sprite", "Hazy Pass", "Heal Order", "Heart Scale", "Heat Rotom", "Helix Fossil", "Helping Hand", "Hidden Ability", "Hidden Power", "Hoenn Certificate", "Hondew Berry", "Honey Jar", "Honey Tree", "Hydro Cannon", "Hydro Pump", "Hyper Beam", "Iapapa Berry", "Ice Beam", "Ice Gem", "Ice Heal", "Ice Punch", "Ice Shard", "Icicle Plate", "Indigo League", "Insect Plate", "Iron Defense", "Iron Plate", "Iron Tail", "Item Bag", "Item Delivery", "Item Shop", "Jaboca Berry", "Jade Orb", "Jaw Fossil", "Johto Certificate", "Kalos Certificate", "Kanto Certificate", "Kanto League", "Kasib Berry", "Kebia Berry", "Kee Berry", "Kelpsy Berry", "Key Stone", "Knight Axew", "Lake Valor", "Lansat Berry", "Lava Cookie", "Lavender Town", "Leaf Stone", "Leech Life", "Legendary Dogs", "Leppa Berry", "Liechi Berry", "Light Ball", "Light Screen", "Light Stone", "Lightstone Cave", "Link Cable", "Littleroot Town", "Lord Salamance", "Lum Berry", "Lunar Wing", "Mach Bike", "Machine Part", "Magical Leaf", "Mago Berry", "Magost Berry", "Maranga Berry", "Marine Cave", "Master Ball", "Max Repel", "Meadow Plate", "Medal Rally", "Mega Able", "Mega Aggron", "Mega Alakazam", "Mega Audino", "Mega Banette", "Mega Charizard", "Mega Diancie", "Mega Evolution", "Mega Gallade", "Mega Garchomp", "Mega Gengar", "Mega Glalie", "Mega Lopunny", "Mega Mawile", "Mega Mewtwo", "Mega Pidgeot", "Mega Pokemon", "Mega Rayquaza", "Mega Ring", "Mega Sableye", "Mega Salamence", "Mega Scizor", "Mega Steelix", "Mega Stone", "Mega Yorebro", "Metal Coat", "Meteorite Castform", "Mewtwonite Y", "Micle Berry", "Mind Plate", "Misc Settings", "Misdreavus Cosplay", "Mixer Rotom", "Moomoo Milk", "Moomoo Ranch", "Moon Stone", "Mossdeep City", "Mossy Forest", "Mow Rotom", "Mr Bagon", "Mr Mime", "Mt Moon", "Mt Silver", "Mysterious Tree", "Mystery Box", "Mystery Dungeon", "Mystery Egg", "Mystery Key", "Nanab Berry", "Night Slash", "Nightmare Munna", "Nintendo Ds", "Nomel Berry", "Normal Gem", "Notification Wall", "Nurse Joy", "Nuvema Town", "Oblivion Wing", "Occa Berry", "Odd Incense", "Officer Jenny", "Old Amber", "Omega Ruby", "Ominous Wind", "Oran Berry", "Orange Islands", "Oval Stone", "Pal Pad", "Pallet Town", "Pamtre Berry", "Paralyze Heal", "Pass Orb", "Passho Berry", "Payapa Berry", "Pecha Berry", "Permanent Ban", "Persim Berry", "Petal Dance", "Petaya Berry", "Pika Pika", "Pinap Berry", "Pixie Plate", "Plume Fossil", "Pocket Monsters", "Poison Gem", "Poke Ball", "Pokeheroes Wiki", "Pokemon Amie", "Pokemon League", "Pokemon Master", "Pokemon Movie", "Pokemon Ranger", "Pokeradar Chain", "Poll Manager", "Pomeg Berry", "Power Anklet", "Power Band", "Power Belt", "Power Bracer", "Power Lens", "Power Weight", "Primal Groudon", "Primal Kyogre", "Primal Reversion", "Primordial Sea", "Princess Smoochum", "Prism Scale", "Prison Bottle", "Privacy Policy", "Private Message", "Prize Exchange", "Pro Path", "Prof Birch", "Prof Rowan", "Professor Birch", "Professor Oak", "Professor Rowan", "Psychic Gem", "Puzzle Collection", "Qualot Berry", "Queen Jynx", "Quick Attack", "Quick Ball", "Rabuta Berry", "Radio Tower", "Rain Badge", "Rain Dance", "Rainbow Wing", "Rambo Rumble", "Rare Bone", "Rare Candy", "Rawst Berry", "Razor Claw", "Razor Fang", "Razor Leaf", "Razz Berry", "Reaper Cloth", "Red Meteorite", "Red Orb", "Relic Band", "Relic Copper", "Relic Crown", "Relic Gold", "Relic Silver", "Relic Statue", "Relic Vase", "Resolute Stone", "Retro Starters", "Rindo Berry", "Rock Blast", "Rock Gem", "Rocky Cave", "Rodeo Scraggy", "Root Fossil", "Roseli Berry", "Rowap Berry", "Royal Tunnel", "Ruby Valley", "Rumble Area", "Rumble Mission", "Rumble Missions", "Run Away", "Sacred Ash", "Safari Ball", "Safari Zone", "Sail Fossil", "Salac Berry", "Santa Birb", "Santa Bird", "Scary Glasses", "Scope Lens", "Secret Base", "Seed Bomb", "Seller Clothes", "Shiny Chaining", "Shiny Charm", "Shiny Ditto", "Shiny Hunt", "Shiny Sprite", "Shiny Stone", "Shoal Shell", "Shock Drive", "Shuca Berry", "Silent Forest", "Silph Co", "Silver Wing", "Sinnoh Certificate", "Sir Haxelot", "Sir Shelgon", "Sitrus Berry", "Skull Fossil", "Sky Pillar", "Sky Plate", "Sky Uppercut", "Slow Start", "Small Nugget", "Snowy Castform", "Snowy Mountains", "Soda Pop", "Solar Beam", "Soothe Bell", "Space Spinda", "Spear Pillar", "Speed Click", "Spelon Berry", "Splash Plate", "Spooky Manor", "Spooky Plate", "Spray Duck", "Spring Ampharos", "Spring Flaaffy", "Spring Mareep", "Spring Update", "Ss Anne", "Ss Aqua", "Ss Tidal", "Star Piece", "Starf Berry", "Steam Eruption", "Steel Gem", "Steven Stone", "Stone Plate", "String Shot", "Strong Earthquakes", "Sugar Shock", "Summer Ampharos", "Sun Stone", "Super Breloomio", "Super Honey", "Super Rod", "Super Shroom", "Super Training", "Surfing Pikachu", "Sweet Heart", "Swords Dance", "Tail Whip", "Tall Grass", "Tamato Berry", "Tanga Berry", "Team Aqua", "Team Flare", "Team Magma", "Team Plasma", "Team Rocket", "Technical Machine", "Terra Cave", "Thunder Punch", "Tiny Mushroom", "Tom Nook", "Toxic Orb", "Toxic Plate", "Trainer Red", "Treasure Hunt", "Twinleaf Town", "Ultra Ball", "Union Cave", "Union Room", "Unova Certificate", "Van Bagon", "Vaniville Town", "Vine Whip", "Viridian City", "Volt Absorb", "Volt Switch", "Volt Tackle", "Vs Seeker", "Wacan Berry", "Wailmer Pail", "Wash Rotom", "Water Gem", "Water Gun", "Water Stone", "Watmel Berry", "Weather Balloon", "Weather Channel", "Weather Forecast", "Wepear Berry", "Whipped Dream", "White Hand", "White Kyurem", "Wide Lens", "Wiki Berry", "Windy Prairie", "Winter Camerupt", "Winter Numel", "Wonder Guard", "Wonder Trade", "Wood Hammer", "X Attack", "X Defense", "X Speed", "Yache Berry", "Yellow Forest", "Yellow Meteorite", "Zap Cannon", "Zap Plate", "Zero Isle", "Abra", "Aqua", "Aron", "Axew", "Bold", "Chef", "Jynx", "Natu", "Onix", "Sawk", "Seel", "Uxie", "Xatu", "Absol", "Aipom", "Almia", "Anime", "Azelf", "Badge", "Bagon", "Beach", "Berry", "Black", "Brock", "Bugsy", "Candy", "Catch", "Cilan", "Clair", "Curse", "Deino", "Ditto", "Doduo", "Eevee", "Ekans", "Ember", "Emera", "Ether", "Event", "Fairy", "Fiore", "Flare", "Flash", "Forum", "Ghost", "Gible", "Gloom", "Golem", "Goomy", "Grass", "Growl", "Hatch", "Hoenn", "Hoggy", "Honey", "Inkay", "James", "Johto", "Kalos", "Kanto", "Klang", "Klink", "Lance", "Level", "Lotad", "Lugia", "Luxio", "Mimic", "Minun", "Misty", "Mouse", "Muggy", "Munna", "Nappy", "Nessy", "Numel", "Omega", "Paras", "Party", "Pichu", "Quest", "Ralts", "Retro", "Riolu", "Rival", "Rotom", "Round", "Route", "Rowan", "Royal", "Rules", "Salon", "Shinx", "Shiny", "Snivy", "Spore", "Staff", "Staid", "Swift", "Tepig", "Throh", "Timid", "Toxic", "Trade", "Types", "Unova", "Unown", "Users", "Wally", "Water", "Yanma", "Zorua", "Zubat", "Adaptability", "Aromatherapy", "Casteliacone", "Crabominable", "Deepseascale", "Deepseatooth", "Flamethrower", "Interactions", "Notification", "Slowpoketail", "Thundershock", "Thunderstone", "Tinymushroom", "Trainerlevel", "Trainerpoint", "Undiscovered", "Buttercream", "Cocktaillon", "Electirizer", "Ferrerocoal", "Fletchinder", "Frustration", "Gemcauldron", "Gemexchange", "Interaction", "Lucarionite", "Pachirisnow", "Sandcrustle", "Scattercube", "Synchronize", "Thunderbolt", "Acrobatics", "Aerodactyl", "Applewoodo", "Aromatisse", "Barbaracle", "Bellsprout", "Bonemerang", "Bouffalant", "Butterfree", "Carracosta", "Catercream", "Chandelure", "Charmander", "Charmeleon", "Chesnaught", "Cofagrigus", "Conkeldurr", "Crabhammer", "Crabrawler", "Darmanitan", "Dirndltank", "Earthquake", "Eelektross", "Electabuzz", "Electivire", "Escavalier", "Feraligatr", "Ferrothorn", "Fletchling", "Forretress", "Friendship", "Galvantula", "Gamecenter", "Generation", "Gingergoat", "Gothitelle", "Groomicott", "Helioptile", "Herowalker", "Hippopotas", "Hitmonchan", "Honeycombs", "Ikkakugong", "Incineroar", "Jigglypuff", "Kangaskhan", "Karrablast", "Kricketune", "Krookodile", "Lickilicky", "Lillibride", "Magmarizer", "Masquerain", "Misdreavus", "Moderators", "Playground", "Pokedollar", "Pokeheroes", "Pokewalker", "Roggenrola", "Sandwebble", "Scatterbug", "Seismitoad", "Spewbrella", "Talonflame", "Tentacruel", "Togedemaru", "Typhlosion", "Valenfloon", "Victreebel", "Weepinbell", "Whimsicott", "Whirlipede", "Wigglytuff", "Abomasnow", "Aegislash", "Aggronite", "Alomomola", "Amoonguss", "Awakening", "Azumarill", "Bastiodon", "Beautifly", "Bellossom", "Blastoise", "Blossomly", "Bulbasaur", "Cacophony", "Carnivine", "Charizard", "Charjabug", "Chikorita", "Chingling", "Clauncher", "Clawfairy", "Clawitzer", "Clicklist", "Combusken", "Community", "Constrict", "Cosmoneon", "Cottonblu", "Crawdaunt", "Cresselia", "Cryogonal", "Cuddlithe", "Cyndaquil", "Decidueye", "Derpatung", "Diggersby", "Discharge", "Dragonair", "Dragonite", "Druddigon", "Dunsparce", "Eelektrik", "Electrike", "Electrode", "Everstone", "Evolution", "Excadrill", "Exeggcute", "Exeggutor", "Ferroseed", "Frogadier", "Gardevoir", "Girafarig", "Gothorita", "Gourgeist", "Growlithe", "Heliolisk", "Heracross", "Hippowdon", "Hitmonlee", "Hitmontop", "Honchkrow", "Honeycomb", "Honeytree", "Hydreigon", "Igglybuff", "Infernape", "Jellicent", "Judgement", "Klinklang", "Kricketot", "Larviprop", "Latiasite", "Leftovers", "Legendary", "Lepreowth", "Lickitung", "Lightblim", "Lilligant", "Lovemeter", "Machotide", "Magmortar", "Magnemite", "Magnezone", "Mamoswine", "Mandibuzz", "Manectric", "Marshtomp", "Metacream", "Metagross", "Metronome", "Mightyena", "Mismagius", "Missingno", "Nidoqueen", "Ninetails", "Ninetales", "Octazooka", "Octillery", "Pachirisu", "Palossand", "Palpitoad", "Paralysis", "Paralyzed", "Pidgeotto", "Piloswine", "Pokeblock", "Pokeradar", "Pokeworld", "Poliwhirl", "Poliwrath", "Poochyena", "Probopass", "Professor", "Protector", "Pumpkaboo", "Quilladin", "Rampardos", "Regigigas", "Registeel", "Relicanth", "Reuniclus", "Rhyperior", "Salamence", "Sandshrew", "Sandslash", "Sandstorm", "Sandygast", "Scolipede", "Serperior", "Shiinotic", "Shroomish", "Spiritomb", "Sprayduck", "Staraptor", "Stoutland", "Sudowoodo", "Tangrowth", "Teddiursa", "Telepathy", "Tentacool", "Terrakion", "Thundurus", "Toucannon", "Toxicroak", "Tranquill", "Trevenant", "Tyranitar", "Tyrantrum", "Valentine", "Vanillish", "Vanillite", "Vanilluxe", "Venoshock", "Vespiquen", "Vileplume", "Volcarona", "Wartortle", "Wobbuffet", "Zebstrika", "Zigzagoon", "Accelgor", "Alakazam", "Ampharos", "Antidote", "Apricorn", "Arcaddly", "Arcanine", "Archeops", "Articuno", "Barboach", "Beachamp", "Beedrill", "Beheeyem", "Bergmite", "Berrydex", "Blaziken", "Braviary", "Bronzong", "Bunnelby", "Cacturne", "Camerupt", "Candaria", "Carvanha", "Castform", "Caterpie", "Champion", "Chatquiz", "Chimchar", "Chimecho", "Chinchou", "Chocoluv", "Cinccino", "Clamperl", "Clefable", "Clefairy", "Cloyster", "Cobalion", "Coinflip", "Contrary", "Corphish", "Cottonee", "Cranidos", "Croagunk", "Croconaw", "Darumaka", "Database", "Delcatty", "Delibird", "Delivery", "Doublade", "Dragalge", "Dralucha", "Drifblim", "Driflamp", "Drifloon", "Ducklett", "Dusclops", "Dusknoir", "Electric", "Empoleon", "Eviolite", "Fennekin", "Floatzel", "Frillish", "Froslass", "Gambling", "Gametime", "Garbodor", "Garchomp", "Genesect", "Geomancy", "Gigalith", "Giratina", "Glaciate", "Gomaseel", "Gorebyss", "Gracidea", "Granbull", "Graveler", "Greninja", "Gumshoos", "Gyarados", "Hariyama", "Hawlucha", "Heartomb", "Herochat", "Hoothoot", "Houndoom", "Houndour", "Illumise", "Illusion", "Interact", "Jesterig", "Jumpluff", "Kabutops", "Krokorok", "Landorus", "Larvesta", "Larvitar", "Leavanny", "Lemonade", "Lillipup", "Ludicolo", "Lumineon", "Lunatone", "Magcargo", "Magikarp", "Magneton", "Makuhita", "Maractus", "Mareanie", "Medicham", "Meditite", "Meganium", "Meloetta", "Meowstic", "Mienshao", "Mikoshao", "Minccino", "Monferno", "Morelull", "Mudsdale", "Munchlax", "Musharna", "Mushroom", "Nidoking", "Nidorina", "Nidorino", "Nintendo", "Nosepass", "Oshawott", "Overheat", "Parasect", "Pawniard", "Pelipper", "Perchaun", "Phantump", "Pokeball", "Pokegear", "Pokehero", "Polestar", "Politoed", "Primeape", "Prinplup", "Purrloin", "Quagsire", "Qwilfish", "Raitoshi", "Ranklist", "Rapidash", "Raticate", "Rayquaza", "Regirock", "Remoraid", "Reshiram", "Ribombee", "Roleplay", "Roserade", "Rumbling", "Samurott", "Sapphire", "Sceptile", "Settings", "Sewaddle", "Sharpedo", "Shedinja", "Shellder", "Shieldon", "Shipping", "Sigilyph", "Simipour", "Simisage", "Simisear", "Skarmory", "Skiploom", "Skuntank", "Slowking", "Slowpoke", "Slowyore", "Slurpuff", "Smeargle", "Smoochum", "Snowbuck", "Snowling", "Snubbull", "Spinarak", "Spritzee", "Squirtle", "Stantler", "Staravia", "Stardust", "Starters", "Strength", "Struggle", "Stunfisk", "Sunflora", "Swadloon", "Swampert", "Tirtouga", "Togekiss", "Tornadus", "Torracat", "Torterra", "Totodile", "Training", "Trapinch", "Treasure", "Trubbish", "Trumbeak", "Tsareena", "Unfezant", "Ursaring", "Userlist", "Username", "Vaporeon", "Venipede", "Venomoth", "Venusaur", "Vigoroth", "Virizion", "Vivillon", "Whiscash", "Yoreking", "Zangoose", "Zweilous", "Agility", "Altaria", "Ambipom", "Anorith", "Ariados", "Armaldo", "Auction", "Aurorus", "Avalugg", "Azurill", "Banette", "Bayleef", "Beartic", "Begging", "Bibarel", "Binacle", "Bisharp", "Blissey", "Blitzle", "Boldore", "Braixen", "Breloom", "Brionne", "Bronzor", "Buneary", "Calcium", "Carbink", "Cascoon", "Chansey", "Cherrim", "Cherubi", "Chespin", "Claydol", "Contest", "Corsola", "Cosmoem", "Cradily", "Crustle", "Cubchoo", "Cynthia", "Darkrai", "Dartrix", "Daycare", "Dedenne", "Defense", "Delphox", "Dewgong", "Diancie", "Diglett", "Donphan", "Drapion", "Dratini", "Drilbur", "Drowzee", "Dugtrio", "Dungeon", "Duosion", "Duskull", "Dwebble", "Element", "Emerald", "Exploud", "Fainted", "Finneon", "Fishing", "Flaaffy", "Flareon", "Foongus", "Fraxure", "Froakie", "Furfrou", "Gallade", "Gameboy", "Geodude", "Ghetsis", "Glaceon", "Glameow", "Gliscor", "Gloweon", "Goldeen", "Golduck", "Gothita", "Groudon", "Grovyle", "Grubbin", "Grumpig", "Gurdurr", "Hangman", "Happiny", "Harvest", "Hashtag", "Haunter", "Haxorus", "Heatmor", "Heatran", "Herdier", "Honedge", "Huntail", "Ivysaur", "Jirachi", "Jolteon", "Juniper", "Kadabra", "Kecleon", "Ketchum", "Kinesis", "Kingdra", "Kingler", "Koffing", "Lampent", "Lanturn", "Leafeon", "Liepard", "Linoone", "Litwick", "Lopunny", "Lottery", "Loudred", "Lucario", "Lumiday", "Luvdisc", "Machamp", "Machoke", "Malamar", "Manaphy", "Mantine", "Mantyke", "Marowak", "Mesprit", "Metapod", "Mienfoo", "Mikofoo", "Milotic", "Miltank", "Mission", "Moltres", "Mudbray", "Murkrow", "Nincada", "Ninjask", "Noctowl", "Noivern", "Nuzleaf", "Omanyte", "Omastar", "Pancham", "Pangoro", "Panpour", "Pansage", "Pansear", "Persian", "Petilil", "Pidgeot", "Pignite", "Pikachu", "Plushie", "Pokedex", "Pokemon", "Pokerus", "Poliwag", "Porygon", "Protein", "Psychic", "Psyduck", "Pupibot", "Pupitar", "Purugly", "Quilava", "Rattata", "Raylong", "Remakes", "Rhyhorn", "Roselia", "Rufflet", "Sableye", "Sandile", "Satochu", "Scanner", "Scrafty", "Scraggy", "Scyther", "Seaking", "Seatran", "Sentret", "Servine", "Seviper", "Shaymin", "Shelgon", "Shelmet", "Shiftry", "Shinies", "Shuckle", "Shuppet", "Silcoon", "Skorupi", "Slaking", "Slakoth", "Sliggoo", "Slowbro", "Sneasel", "Snorlax", "Snorunt", "Solosis", "Solrock", "Spearow", "Spriter", "Starmie", "Starter", "Steelix", "Steenee", "Suicune", "Sunkern", "Surskit", "Swagger", "Swellow", "Swirlix", "Swoobat", "Sylveon", "Taillow", "Tangela", "Timburr", "Togetic", "Toraros", "Torchic", "Torkoal", "Toxapex", "Trading", "Trainer", "Treecko", "Tropius", "Turtwig", "Tympole", "Tyrogue", "Umbreon", "Venonat", "Vibrava", "Victini", "Vitamin", "Volbeat", "Volkner", "Voltorb", "Vullaby", "Wailmer", "Wailord", "Walrein", "Watchog", "Weather", "Weavile", "Weezing", "Whismur", "Wingull", "Wurmple", "Xerneas", "Yanmega", "Yorebro", "Yveltal", "Zomppet", "Zoroark", "Zygarde", "Aggron", "Amaura", "Arceus", "Archen", "Attack", "Audino", "Aurora", "Avatar", "Baltoy", "Battle", "Beldum", "Bidoof", "Bonsly", "Bubble", "Buizel", "Cacnea", "Carbos", "Celebi", "Chatot", "Clawfa", "Cleffa", "Combee", "Crobat", "Cubone", "Deoxys", "Dewott", "Dialga", "Dodrio", "Dragon", "Drampa", "Durant", "Dustox", "Eggdex", "Elekid", "Elgyem", "Emboar", "Emolga", "Espeon", "Espurr", "Fearow", "Feebas", "Flygon", "Flying", "Fossil", "Frozen", "Furret", "Gabite", "Gaming", "Gastly", "Gengar", "Glalie", "Gligar", "Glitch", "Gogoat", "Golbat", "Golett", "Golurk", "Goodra", "Grimer", "Grotle", "Ground", "Gulpin", "Harden", "Helper", "Hoppip", "Horsea", "Impish", "Joltik", "Kabuto", "Kakuna", "Keldeo", "Kirlia", "Klefki", "Komala", "Krabby", "Kyogre", "Kyurem", "Lairon", "Lapras", "Latias", "Latios", "Ledian", "Ledyba", "Legend", "Lileep", "Litleo", "Lombre", "Luxray", "Machop", "Magmar", "Mankey", "Mareep", "Marill", "Master", "Masuda", "Mawile", "Meowth", "Metang", "Mewtwo", "Milker", "Mothim", "Mudkip", "Noibat", "Normal", "Nugget", "Oddish", "Palkia", "Palpad", "Patrat", "Phanpy", "Phione", "Pickup", "Pidgey", "Pidove", "Pineco", "Pinsir", "Piplup", "Plusle", "Poison", "Ponyta", "Potion", "Primal", "Puzzle", "Pyroar", "Raffle", "Raichu", "Raikou", "Regice", "Rescue", "Revive", "Rhydon", "Rokkyu", "Rumble", "Sachet", "Safari", "Scizor", "Seadra", "Sealeo", "Seedot", "Serena", "Sinnoh", "Skiddo", "Skitty", "Skrelp", "Skugar", "Slugma", "Snover", "Spewpa", "Spheal", "Spinda", "Spoink", "Sprite", "Starly", "Staryu", "Steven", "Stunky", "Summon", "Swablu", "Swalot", "Swanna", "Swinub", "Tackle", "Tauros", "Togepi", "Truant", "Tunnel", "Tynamo", "Tyrunt", "Uproar", "Vulpix", "Weedle", "Woobat", "Wooper", "Wynaut", "Yamask", "Zapdos", "Zekrom",
 
 
 
@@ -3360,6 +3420,7 @@ function pokemonRegexTest(a) {
 
     var reg = new RegExp(unknown, "i")
     var possibleAnswers = [];
+    var submitting = false;
     console.log(reg)
 
     for (var i = 0; i<pokemonList.length; i++) {
@@ -3375,6 +3436,10 @@ function pokemonRegexTest(a) {
                     shouldPush = false
                     //console.log(currentCheck[0] + " contains the letter " + alreadySubmitted[x].textContent)
                 }
+            }
+
+            if (possibleAnswers.indexOf(currentCheck[0]) > -1) { // don't add duplicate answers to the possibilities...
+                shouldPush = false
             }
 
             if (shouldPush) {
@@ -3395,13 +3460,15 @@ function pokemonRegexTest(a) {
     if (possibleAnswers.length < 5 && possibleAnswers.length > 1) {
         for (var b = 0; b < possibleAnswers[0].length; b++) {
             if (possibleAnswers[1].toLowerCase().includes(possibleAnswers[0].toLowerCase()[b])) {
-                if (!currentHangman.toLowerCase().includes(possibleAnswers[0].toLowerCase()[b])) {
+                if (!currentHangman.toLowerCase().includes(possibleAnswers[0].toLowerCase()[b]) && submitting == false) {
+                    submitting = true;
                     $("a.letterGuess:contains("+ possibleAnswers[0][b].toUpperCase() +")")[0].click()
                 }
             }
         }
         for (b = 0; b < possibleAnswers[0].length; b++) {
-            if (!currentHangman.toLowerCase().includes(possibleAnswers[0].toLowerCase()[b])) {
+            if (!currentHangman.toLowerCase().includes(possibleAnswers[0].toLowerCase()[b]) && submitting == false) {
+                submitting = true;
                 $("a.letterGuess:contains("+ possibleAnswers[0][b].toUpperCase() +")")[0].click()
             }
         }
@@ -3411,8 +3478,23 @@ function pokemonRegexTest(a) {
         var finalAnswer = possibleAnswers[0].toLowerCase()
         for (var b = 0; b < finalAnswer.length; b++) {
             if(!currentHangman.toLowerCase().includes(finalAnswer[b])) {
+                submitting = true;
                 $("a.letterGuess:contains(" + finalAnswer[b].toUpperCase() + ")")[0].click()
             }
+        }
+    }
+
+    if (currentHangman.includes("_") && submitting == false) {
+        submitting = true;
+        $("a.letterGuess:contains('A')")[0].click()
+        $("a.letterGuess:contains('E')")[0].click()
+        $("a.letterGuess:contains('I')")[0].click()
+    }
+
+    if (!currentHangman.includes("A") || !currentHangman.includes("E") || !currentHangman.includes("I")) { // if you tried a, e, and i and none of them worked try o and u
+        if ($("[style='opacity: 0.6']:contains('A')").length == 1 && $("[style='opacity: 0.6']:contains('E')").length == 1 && $("[style='opacity: 0.6']:contains('I')").length == 1) {
+            $("a.letterGuess:contains('O')")[0].click()
+            $("a.letterGuess:contains('U')")[0].click()
         }
     }
 
@@ -3422,13 +3504,7 @@ function pokemonRegexTest(a) {
 
     }
 
-    if (currentHangman.includes("_")) {
-        $("a.letterGuess:contains('A')")[0].click()
-        $("a.letterGuess:contains('E')")[0].click()
-        $("a.letterGuess:contains('I')")[0].click()
-        $("a.letterGuess:contains('O')")[0].click()
-        $("a.letterGuess:contains('U')")[0].click()
-    }
+
 
     if (currentHangman.includes("STEVEN")) {
         document.getElementById("answers").insertAdjacentHTML("afterbegin", '<iframe width="560" height="315" src="https://www.youtube.com/embed/j-K-zqLNtcw?start=10&autoplay=1&controls=0" frameborder="1" autoplay="1" allow="picture-in-picture" allowfullscreen></iframe>')

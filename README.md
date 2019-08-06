@@ -52,6 +52,11 @@ Affects all clicklists.
 This script will automatically "click" through a clicklist for as long as you have the tab open.
 The default speed is 1000ms/1 second. You can change the speed through an input box that appears in a clicklist.
 
+## PHGemCauldron.user.js
+Affects the gem cauldron minigame
+
+It automatically puts the right gem in the cauldron as soon as you start the minigame.
+
 ## PHRoyalTunnelCheat.user.js
 Affects the royal tunnel
 

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PH - Gem Cauldron
 // @namespace    https://github.com/warpKaiba
-// @version      0.1
+// @version      0.2
 // @description  try to take over the world!
 // @author       You
 // @match        http*://pokeheroes.com/gem_cauldron*
@@ -13,13 +13,17 @@
 var wantedGems = $("[style*='margin-left: 106px']")
 var choiceGems = $("[onclick*='addGem']")
 
+var lastGem = -1;
+
 var cauldronInterval = setInterval(function() {
-    if (displayedGem >= 0) {
-        getPixelFrom(wantedGems[displayedGem].src)
+    if (displayedGem >= 0 && lastGem < displayedGem) {
+        getPixelFrom(wantedGems[displayedGem].src);
+        lastGem = displayedGem;
     }
 }, 300)
 
 function getPixelFrom(gemg) {
+    console.log("getPixelFrom" + gemg);
     var img = new Image;
 
     var canvas = document.createElement('canvas');
@@ -37,40 +41,59 @@ function getPixelFrom(gemg) {
 function clickGem(gemg) {
     switch(gemg) {
         case "156,173,247,255": //flying
-            addGem('Flying')
+            addGem('Flying');
+            break;
         case "156,189,33,255": //bug
-            addGem('Bug')
+            addGem('Bug');
+            break;
         case "198,181,181,255": //normal
-            addGem('Normal')
+            addGem('Normal');
+            break;
         case "148,74,123,255": //fighting
-            addGem('Fighting')
+            addGem('Fighting');
+            break;
         case "107,99,140,255": //poison
-            addGem('Poison')
+            addGem('Poison');
+            break;
         case "165,107,33,255": //ground
-            addGem('Ground')
+            addGem('Ground');
+            break;
         case "140,115,90,255": //rock
-            addGem('Rock')
+            addGem('Rock');
+            break;
         case "80,64,152,255": //ghost
-            addGem('Ghost')
+            addGem('Ghost');
+            break;
         case "99,99,99,255": //steel
-            addGem('Steel')
+            addGem('Steel');
+            break;
         case "240,64,48,255": //fire
-            addGem('Fire')
+            addGem('Fire');
+            break;
         case "48,144,248,255": //water
-            addGem('Water')
+            addGem('Water');
+            break;
         case "66,206,82,255": //grass
-            addGem('Grass')
+            addGem('Grass');
+            break;
         case "231,206,0,255": //electric
-            addGem('Electric')
+            addGem('Electric');
+            break;
         case "214,57,140,255": //psychic
-            addGem('Psychic')
+            addGem('Psychic');
+            break;
         case "49,214,255,255": //ice
-            addGem('Ice')
+            addGem('Ice');
+            break;
         case "132,99,231,255": //dragon
-            addGem('Dragon')
+            addGem('Dragon');
+            break;
         case "54,54,54,255": //dark
-            addGem('Dark')
+            addGem('Dark');
+            break;
         case "232,146,191,255": //fairy
-            addGem('Fairy')
+            addGem('Fairy');
+            break;
     }
+    console.log("Added gem. The pixel is:" + gemg);
 }

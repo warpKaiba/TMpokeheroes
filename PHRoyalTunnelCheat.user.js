@@ -20,7 +20,7 @@ if (getCookie("tunnelBreak") == "") {
 } else {
     tunnelBreak = getCookie("tunnelBreak");
     //console.log(tunnelBreak)
-    if(tunnelBreak == "true") {
+    if(tunnelBreak == "true" || tunnelBreak == true) {
         breakCookie = "checked"
     } else {
         breakCookie = ""
@@ -49,7 +49,7 @@ if(document.body.innerText.indexOf("Start exploring") >= 0) {
     $("#delaysubmit")[0].addEventListener("click", updateDelay)
 }
 if(document.body.innerText.indexOf("You can either take a break or continue") >= 0) {
-    if (tunnelBreak == false) {
+    if (tunnelBreak == false || tunnelBreak == "false") {
         let elem = document.querySelector("#textbar > center > font > a");
         elem.click();
     }

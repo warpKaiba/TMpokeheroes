@@ -71,9 +71,11 @@ if(document.getElementsByClassName("royal_tunnel").length > 0 ) {
         if(this.checked) {
             document.cookie = "tunnelBreak=true; expires=Thu, 18 Dec 2029 12:00:00 UTC;";
             breakCookie = "checked"
+            tunnelBreak = true;
         } else {
             document.cookie = "tunnelBreak=false; expires=Thu, 18 Dec 2029 12:00:00 UTC;";
             breakCookie = ""
+            tunnelBreak = false;
         }
     });
     localStorage.setItem("lastQuestion",quest.innerHTML);

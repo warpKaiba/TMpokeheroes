@@ -27,6 +27,11 @@ if (getCookie("tunnelBreak") == "") {
     }
 }
 
+var eggCollect = "";
+if(sessionStorage.getItem("eggCollect") == "checked") {
+    eggCollect = "checked"
+}
+
 var cont = false;
 
 function sleep(ms) {
@@ -34,13 +39,15 @@ function sleep(ms) {
 }
 
 if (document.body.innerText.indexOf("Claim") >= 0 && !cont) {
-    cont = true;
-    sleep(tunnelDelay).then(() => {
-        console.log("Claiming egg");
-        cont=false;
-        var claim = document.querySelector("#textbar > center > a");
-        claim.click();
-    });
+    if(eggCollect == "checked") {
+        cont = true;
+        sleep(tunnelDelay).then(() => {
+            console.log("Claiming egg");
+            cont=false;
+            var claim = document.querySelector("#textbar > center > a");
+            claim.click();
+        });
+    }
 }
 
 if(document.body.innerText.indexOf("Start exploring") >= 0) {
@@ -66,7 +73,7 @@ if(document.getElementsByClassName("royal_tunnel").length > 0 ) {
     var looking2 = false;
     var evolve = false;
     var newVars = false;
-    el.insertAdjacentHTML("beforebegin", "<input id=breakcheck type=checkbox style='transform: scale(2);' "+ breakCookie +">    Take breaks?</input>")
+    el.insertAdjacentHTML("beforebegin", "<input id=breakcheck type=checkbox style='transform: scale(2);' "+ breakCookie +">    Take breaks? </input>")
     $("#breakcheck").change(function() {
         if(this.checked) {
             document.cookie = "tunnelBreak=true; expires=Thu, 18 Dec 2029 12:00:00 UTC;";
@@ -76,6 +83,14 @@ if(document.getElementsByClassName("royal_tunnel").length > 0 ) {
             document.cookie = "tunnelBreak=false; expires=Thu, 18 Dec 2029 12:00:00 UTC;";
             breakCookie = ""
             tunnelBreak = false;
+        }
+    });
+    el.insertAdjacentHTML("beforebegin", "<input id=eggcollect type=checkbox style='transform: scale(2);' "+ eggCollect +">    Collect eggs? </input>")
+    $("#eggcollect").change(function() {
+        if(this.checked) {
+            sessionStorage.setItem("eggCollect", "checked");
+        } else {
+            sessionStorage.setItem("eggCollect", "");
         }
     });
     localStorage.setItem("lastQuestion",quest.innerHTML);

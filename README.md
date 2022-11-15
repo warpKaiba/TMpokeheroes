@@ -27,6 +27,11 @@ Affects the monthly bug contest minigame.
 
 This gets rid of the time limit and will also automatically click on bug types. It's a bit slow, but you can help it along by clicking on bugs as well. The play area and spawn rate is increased, and the Pokemon do not despawn.
 
+## PHAutoConcentrationGame.user.js
+Automatically completes the concentration game, then refreshes the page until the game is availible again.
+
+Adjust the difficulty by toggling the `difficulty` variable in the script. 
+
 ## PHAutoSlots.user.js
 Affects the golden slot machines.
 

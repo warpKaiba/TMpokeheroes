@@ -1,13 +1,27 @@
 // ==UserScript==
-// @name         PH - Concentration Game
+// @name         PH - Auto Concentration Game
 // @namespace    http://tampermonkey.net/
-// @version      0.1
-// @description  try to take over the world!
+// @version      1.0
+// @description  PokeHeroes concentration game bot
 // @author       ewei068
 // @match        https://pokeheroes.com/gc_concentration*
-// @icon         https://www.google.com/s2/favicons?sz=64&domain=pokeheroes.com
+// @downloadURL  https://github.com/warpKaiba/TMpokeheroes/raw/master/PHAutoConcentrationGame.user.js
+// @icon         https://vignette.wikia.nocookie.net/pkmnshuffle/images/7/7f/Ducklett.png/revision/latest?cb=20170409032016
 // @grant        none
 // ==/UserScript==
+
+// SET DIFFICULTY HERE
+// 0 = easy, 1 = medium, 2 = hard
+var difficulty = 2
+
+var numPkmn = 36
+if (difficulty == 0) {
+    numPkmn = 16
+} else if (difficulty == 1) {
+    numPkmn = 26
+}
+var covered = Array.from(Array(numPkmn).keys())
+const pkmnMap = {}
 
 async function flipCard(i) {
     if (cardLoading)
@@ -52,10 +66,6 @@ async function flipCard(i) {
     return num
 }
 
-const numPkmn = 36
-covered = Array.from(Array(numPkmn).keys())
-const pkmnMap = {}
-
 try {
     while (covered) {
         id1 = covered.pop()
@@ -71,7 +81,7 @@ try {
                 if (pkmn2 in pkmnMap) {
                     covered.push(id2)
                 } else {
-                    pkmnMap[pkmn2]=id2
+                    pkmnMap[pkmn2] = id2
                 }
             }
         }
